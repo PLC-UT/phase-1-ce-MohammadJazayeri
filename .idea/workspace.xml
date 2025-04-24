@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="3dab7a72-2e02-4f87-b1cc-d73b3fc4d9fd" name="Changes" comment="" />
+    <list default="true" id="68365f85-a90e-432b-85fe-c0d47523b9ca" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -10,19 +13,103 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Enum" />
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/src/main/visitor/NameAnalyzer.java" />
+      </list>
+    </option>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProjectId" id="2vevLUtPBRT8efiz3FR3lZqWRi3" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
-    <ConfirmationsSetting value="1" id="Add" />
+  <component name="ProjectCodeStyleSettingsMigration">
+    <option name="version" value="2" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 2
+}</component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="20" />
+    <option name="y" value="40" />
+    <option name="width" value="2696" />
+    <option name="height" value="1584" />
+  </component>
+  <component name="ProjectId" id="2edmBBifCIcRFEejVfpD0lnBbsL" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="SimpleLang.iml" type="b2602c69:ProjectViewProjectNode" />
+              <item name="miniProject-NameAnalysis" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SimpleLang.iml" type="b2602c69:ProjectViewProjectNode" />
+              <item name="miniProject-NameAnalysis" type="462c0819:PsiDirectoryNode" />
+              <item name="samples" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SimpleLang.iml" type="b2602c69:ProjectViewProjectNode" />
+              <item name="miniProject-NameAnalysis" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SimpleLang.iml" type="b2602c69:ProjectViewProjectNode" />
+              <item name="miniProject-NameAnalysis" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SimpleLang.iml" type="b2602c69:ProjectViewProjectNode" />
+              <item name="miniProject-NameAnalysis" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="nodes" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SimpleLang.iml" type="b2602c69:ProjectViewProjectNode" />
+              <item name="miniProject-NameAnalysis" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="nodes" type="462c0819:PsiDirectoryNode" />
+              <item name="declaration" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SimpleLang.iml" type="b2602c69:ProjectViewProjectNode" />
+              <item name="miniProject-NameAnalysis" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="grammar" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SimpleLang.iml" type="b2602c69:ProjectViewProjectNode" />
+              <item name="miniProject-NameAnalysis" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="visitor" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
+    </panes>
   </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -30,66 +117,196 @@
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
+    &quot;Application.sample1.executor&quot;: &quot;Run&quot;,
+    &quot;Application.sample2.executor&quot;: &quot;Run&quot;,
+    &quot;Application.sample3.executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/UT university/PLC/CA1/phase-1-ce-MohammadJazayeri/utilities/antlr-4.13.1-complete.jar&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/UT university/PLC/CA1/phase-1-ce-MohammadJazayeri&quot;,
     &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.30114943&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
   }
 }</component>
-  <component name="RunManager">
-    <configuration default="true" type="JetRunConfigurationType">
-      <module name="phase-1-ce-MohammadJazayeri" />
+  <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="main.symbolTable.exceptions" />
+      <recent name="main.ast.Nodes.delaration" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\9\TA\Compiler\AntlrPersentation\template\src\main\grammar" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.sample4">
+    <configuration name="sample1" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="SimpleLang" />
+      <module name="SimpleLang" />
+      <option name="PROGRAM_PARAMETERS" value="samples/sample1.sl" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
-      <module name="phase-1-ce-MohammadJazayeri" />
-      <option name="filePath" />
+    <configuration name="sample2" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="SimpleLang" />
+      <module name="SimpleLang" />
+      <option name="PROGRAM_PARAMETERS" value="samples/sample2.sl" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="sample3" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="SimpleLang" />
+      <module name="SimpleLang" />
+      <option name="PROGRAM_PARAMETERS" value="samples/sample3.sl" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="sample4" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="SimpleLang" />
+      <module name="SimpleLang" />
+      <option name="PROGRAM_PARAMETERS" value="samples/sample4.sl" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Application.sample4" />
+      <item itemvalue="Application.sample1" />
+      <item itemvalue="Application.sample2" />
+      <item itemvalue="Application.sample3" />
+    </list>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="3dab7a72-2e02-4f87-b1cc-d73b3fc4d9fd" name="Changes" comment="" />
-      <created>1744518302760</created>
+      <changelist id="68365f85-a90e-432b-85fe-c0d47523b9ca" name="Changes" comment="" />
+      <created>1712242692581</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1744518302760</updated>
-      <workItem from="1744518304948" duration="2700000" />
-      <workItem from="1744557204387" duration="86000" />
-      <workItem from="1744557300068" duration="36000" />
-      <workItem from="1744557339340" duration="56000" />
-      <workItem from="1744557433457" duration="24000" />
-      <workItem from="1744557466545" duration="6000" />
-      <workItem from="1744557484296" duration="13000" />
-      <workItem from="1744557510893" duration="26000" />
-      <workItem from="1744557605401" duration="51000" />
-      <workItem from="1744564672427" duration="17000" />
-      <workItem from="1745478138175" duration="8000" />
+      <updated>1712242692581</updated>
+      <workItem from="1744019578808" duration="92000" />
+      <workItem from="1744019693298" duration="20000" />
+      <workItem from="1744019733539" duration="9000" />
+      <workItem from="1744019916651" duration="484000" />
+      <workItem from="1744451321074" duration="1087000" />
+      <workItem from="1744452520924" duration="4975000" />
+      <workItem from="1744467523799" duration="3025000" />
+      <workItem from="1744518210825" duration="2074000" />
+      <workItem from="1744564694777" duration="2285000" />
+      <workItem from="1744636194326" duration="234000" />
+      <workItem from="1744638424009" duration="1894000" />
+      <workItem from="1744690421784" duration="3725000" />
+      <workItem from="1744798490071" duration="4190000" />
+      <workItem from="1744891503955" duration="7348000" />
+      <workItem from="1744972442939" duration="14432000" />
+      <workItem from="1745073454624" duration="3449000" />
+      <workItem from="1745124682233" duration="1639000" />
+      <workItem from="1745140096618" duration="2252000" />
+      <workItem from="1745152810055" duration="8917000" />
+      <workItem from="1745232699599" duration="12041000" />
+      <workItem from="1745334316950" duration="10659000" />
+      <workItem from="1745385379325" duration="16848000" />
+      <workItem from="1745405454600" duration="457000" />
+      <workItem from="1745406534306" duration="122000" />
+      <workItem from="1745408652758" duration="1383000" />
+      <workItem from="1745489423111" duration="634000" />
+      <workItem from="1745490278346" duration="9000" />
     </task>
     <servers />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-6" y="-6" width="1933" height="1053" extended-state="6" />
+    <editor active="true" />
+    <layout>
+      <window_info id="Image Layers" />
+      <window_info id="Designer" />
+      <window_info id="UI Designer" />
+      <window_info id="Capture Tool" />
+      <window_info id="Favorites" side_tool="true" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2496" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info anchor="bottom" id="Tool Output" />
+      <window_info anchor="bottom" id="Version Control" />
+      <window_info anchor="bottom" id="ANTLR Preview" />
+      <window_info anchor="bottom" id="Terminal" />
+      <window_info anchor="bottom" id="Event Log" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="right" id="Palette" />
+      <window_info anchor="right" id="Theme Preview" />
+      <window_info anchor="right" id="Capture Analysis" />
+      <window_info anchor="right" id="Palette&#9;" />
+      <window_info anchor="right" id="Maven Projects" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+    </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State />
-          </value>
-        </entry>
-      </map>
-    </option>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.ClassCastException" package="java.lang" />
+          <option name="timeStamp" value="1" />
+        </breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/SimpleLang.java</url>
+          <line>28</line>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/main/grammar/SimpleLang.g4">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/ast/nodes/Program.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/ast/nodes/declaration/FuncDec.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/ast/nodes/declaration/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/visitor/NameAnalyzer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1569">
+          <caret line="39" column="16" lean-forward="true" selection-start-line="39" selection-start-column="16" selection-end-line="39" selection-end-column="16" />
+          <folding>
+            <element signature="e#3028#3029#0" expanded="true" />
+            <element signature="e#3047#3048#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
   </component>
 </project>

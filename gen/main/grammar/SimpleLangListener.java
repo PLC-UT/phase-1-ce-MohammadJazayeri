@@ -1,4 +1,4 @@
-// Generated from C:/UT university/PLC/CA1/phase-1-ce-MohammadJazayeri/src/main/grammar/SimpleLang.g4 by ANTLR 4.13.1
+// Generated from C:/UT university/PLC/CA/src/main/grammar/SimpleLang.g4 by ANTLR 4.13.1
 package main.grammar;
 
     import main.ast.nodes.*;
