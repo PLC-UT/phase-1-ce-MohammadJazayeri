@@ -249,7 +249,7 @@ public class TestVisitor extends Visitor<Void>{
 
     public Void visit(BinaryExpression binaryExpression) {
         int max = calcDepth(binaryExpression);
-        System.out.println("maximum depth is: "+ max);
+//        System.out.println("maximum depth is: "+ max);
         binaryExpression.getFirstExpression().accept(this);
         binaryExpression.getSecondExpression().accept(this);
         return null;
@@ -273,14 +273,14 @@ public class TestVisitor extends Visitor<Void>{
     @Override
     public Void visit(UnaryExpression unaryExpression) {
         int max = calcDepth1(unaryExpression);
-        System.out.println("U maximum depth is: "+ max);
+//        System.out.println("U maximum depth is: "+ max);
         unaryExpression.getExpression().accept(this);
         return null;
     }
 
     @Override
     public Void visit(Identifier identifier) {
-        System.out.println("I maximum depth is: "+ 0);
+//        System.out.println("I maximum depth is: "+ 0);
         return null;
     }
 
@@ -315,8 +315,20 @@ public class TestVisitor extends Visitor<Void>{
     }
 
     public Void visit(Initializer initializer) {
-        if(initializer.getExpression() != null)
+        if(initializer.getExpression() != null) {
+            int line = 0;
+            String val = "";
+            if(initializer.getExpression() instanceof Constant) {
+                line = ((Constant) initializer.getExpression()).getLine();
+                val = ((Constant) initializer.getExpression()).getVal();
+            }
+            else if(initializer.getExpression() instanceof BinaryExpression) {
+                line = ((BinaryExpression) initializer.getExpression()).getLine();
+                val = ((BinaryExpression) initializer.getExpression()).getOperator();
+            }
+            System.out.println("Line " + line +": Expr " + val);
             initializer.getExpression().accept(this);
+        }
         return null;
     }
 

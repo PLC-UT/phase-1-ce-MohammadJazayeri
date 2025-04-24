@@ -32,7 +32,7 @@ declarationList returns [DeclarationList decList]
 
 expression returns [Expression expressionRet]
   : i = Identifier {$expressionRet = new Identifier($i.text);} {$expressionRet.setLine($i.line);}
-  | c = Constant {$expressionRet = new Constant($c.text);}
+  | c = Constant {$expressionRet = new Constant($c.text); $expressionRet.setLine($c.line);}
   | StringLiteral+
   | LeftParen e = expression {$expressionRet = $e.expressionRet;} RightParen
   | LeftParen t = typeName RightParen LeftBrace i1 = initializerList {$expressionRet = new A($t.typeNameRet, $i1.initialList);}Comma? RightBrace
@@ -57,13 +57,17 @@ expression returns [Expression expressionRet]
         if ($op1.text.equals("*")){op = BinaryOperator.MULT;}
         else if($op1.text.equals("/")){op = BinaryOperator.DIVIDE;}
         else{op = BinaryOperator.MOD;}
-        $expressionRet = new BinaryExpression($e1.expressionRet, $e2.expressionRet, op);
+        BinaryExpression expr = new BinaryExpression($e1.expressionRet, $e2.expressionRet, op);
+        expr.setLine($op1.line);
+        $expressionRet = expr;
   }                                      // Multiplicative`
   | e1 = expression op1 = (Plus | Minus) e2 = expression {
         BinaryOperator op;
         if ($op1.text.equals("+")){op = BinaryOperator.PLUS;}
         else{op = BinaryOperator.MINUS;}
-        $expressionRet = new BinaryExpression($e1.expressionRet, $e2.expressionRet, op);
+        BinaryExpression expr = new BinaryExpression($e1.expressionRet, $e2.expressionRet, op);
+        expr.setLine($op1.line);
+        $expressionRet = expr;
   }                                          // Additive
   | e1 = expression op1 = (LeftShift | RightShift) e2 = expression {
         BinaryOperator op;

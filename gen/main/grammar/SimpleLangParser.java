@@ -681,7 +681,7 @@ public class SimpleLangParser extends Parser {
 				{
 				setState(141);
 				((ExpressionContext)_localctx).c = match(Constant);
-				((ExpressionContext)_localctx).expressionRet =  new Constant((((ExpressionContext)_localctx).c!=null?((ExpressionContext)_localctx).c.getText():null));
+				((ExpressionContext)_localctx).expressionRet =  new Constant((((ExpressionContext)_localctx).c!=null?((ExpressionContext)_localctx).c.getText():null)); _localctx.expressionRet.setLine((((ExpressionContext)_localctx).c!=null?((ExpressionContext)_localctx).c.getLine():0));
 				}
 				break;
 			case 3:
@@ -945,7 +945,9 @@ public class SimpleLangParser extends Parser {
 						                  if ((((ExpressionContext)_localctx).op1!=null?((ExpressionContext)_localctx).op1.getText():null).equals("*")){op = BinaryOperator.MULT;}
 						                  else if((((ExpressionContext)_localctx).op1!=null?((ExpressionContext)_localctx).op1.getText():null).equals("/")){op = BinaryOperator.DIVIDE;}
 						                  else{op = BinaryOperator.MOD;}
-						                  ((ExpressionContext)_localctx).expressionRet =  new BinaryExpression(((ExpressionContext)_localctx).e1.expressionRet, ((ExpressionContext)_localctx).e2.expressionRet, op);
+						                  BinaryExpression expr = new BinaryExpression(((ExpressionContext)_localctx).e1.expressionRet, ((ExpressionContext)_localctx).e2.expressionRet, op);
+						                  expr.setLine((((ExpressionContext)_localctx).op1!=null?((ExpressionContext)_localctx).op1.getLine():0));
+						                  ((ExpressionContext)_localctx).expressionRet =  expr;
 						            
 						}
 						break;
@@ -973,7 +975,9 @@ public class SimpleLangParser extends Parser {
 						                  BinaryOperator op;
 						                  if ((((ExpressionContext)_localctx).op1!=null?((ExpressionContext)_localctx).op1.getText():null).equals("+")){op = BinaryOperator.PLUS;}
 						                  else{op = BinaryOperator.MINUS;}
-						                  ((ExpressionContext)_localctx).expressionRet =  new BinaryExpression(((ExpressionContext)_localctx).e1.expressionRet, ((ExpressionContext)_localctx).e2.expressionRet, op);
+						                  BinaryExpression expr = new BinaryExpression(((ExpressionContext)_localctx).e1.expressionRet, ((ExpressionContext)_localctx).e2.expressionRet, op);
+						                  expr.setLine((((ExpressionContext)_localctx).op1!=null?((ExpressionContext)_localctx).op1.getLine():0));
+						                  ((ExpressionContext)_localctx).expressionRet =  expr;
 						            
 						}
 						break;

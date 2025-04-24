@@ -6,7 +6,7 @@ public class BinaryExpression extends Expression{
     private Expression firstExpression;
     private Expression secondExpression;
     private BinaryOperator operator;
-
+    private int line;
     private String leftHand;
 
     public BinaryExpression(Expression firstExpression, Expression secondExpression, BinaryOperator operator) {
@@ -40,6 +40,19 @@ public class BinaryExpression extends Expression{
         return secondExpression;
     }
 
+    @Override
+    public int getLine() {
+        return line;
+    }
+
+    @Override
+    public void setLine(int line) {
+        this.line = line;
+    }
+
+    public String getOperator() {
+        return this.operator.getSymbol();
+    }
     @Override
     public <T> T accept(IVisitor<T> visitor) {
         return visitor.visit(this);
