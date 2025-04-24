@@ -1,99 +1,242 @@
 package main.visitor;
 
-import main.ast.nodes.Program;
-import main.ast.nodes.Stmt.*;
-import main.ast.nodes.declaration.FuncDec;
-import main.ast.nodes.declaration.Main;
-import main.ast.nodes.expr.*;
-import main.ast.nodes.expr.primitives.BoolVal;
-import main.ast.nodes.expr.primitives.DoubleVal;
-import main.ast.nodes.expr.primitives.IntVal;
-import main.ast.nodes.expr.primitives.StringVal;
-
-
-/*GOALs:
- *   1. print out scope changes each time a new scope starts
- *   2. print the identifier if it is initialized
- *   3. print the identifier if it is used
- *   4. print out the name of the function when it is defined
- *   5. print out the name of the function when it is used
- *
- * */
-
+import main.ast.nodes.*;
 
 public class TestVisitor extends Visitor<Void>{
     @Override
     public Void visit(Program program) {
-        for (FuncDec func_dec : program.getFuncDecs()){
-            func_dec.accept(this);
-        }
-        program.getMain().accept(this);
+        program.getTranslationUnit().accept(this);
         return null;
     }
-    public Void visit(Main main) {
-        System.out.println("New Scope: Main");
-        for (Stmt stmt : main.getStmts()){
-            stmt.accept(this);
+
+    public Void visit(TranslationUnit translationUnit) {
+        for (ExternalDeclaration externalDeclaration : translationUnit.getExternalDeclarations()) {
+            externalDeclaration.accept(this);
         }
         return null;
     }
 
-    public Void visit(FuncDec funcDec) {
-        System.out.println("New Scope: " + funcDec.getFuncName());
-        for (Stmt stmt : funcDec.getStmts()){
-            stmt.accept(this);
-        }
+    public Void visit(FunctionDefinition functionDefinition) {
+        if(functionDefinition.getDeclarationSpecifiers() != null)
+            functionDefinition.getDeclarationSpecifiers().accept(this);
+
+        functionDefinition.getDeclarator().accept(this);
+
+        if(functionDefinition.getDeclarationList() != null)
+            functionDefinition.getDeclarationList().accept(this);
+
+        if(functionDefinition.getBody() != null)
+            functionDefinition.getBody().accept(this);
+
         return null;
     }
 
-    public Void visit(Assign assign) {
-        System.out.println("Used variable: " + assign.getLeftHand());
-        assign.getRightHand().accept(this);
+    public Void visit(CompoundStmt compoundStmt) {
+        int size = 0;
+        for (BlockItem blockItem : compoundStmt.getItems()) {
+            blockItem.accept(this);
+            if(blockItem.getStatement() instanceof  SelectionStmt) {
+                size += ((SelectionStmt) blockItem.getStatement()).getElseIfSize();
+                size += ((SelectionStmt) blockItem.getStatement()).getElse();
+            }
+            if(blockItem.getDec() != null && blockItem.getDec().getInitDeclaratorList() != null) {
+                size += blockItem.getDec().getInitDeclaratorList().getInitDeclaratorsSize() - 1;
+            }
+        }
+        System.out.println("Function size is: " + (compoundStmt.getItems().size() + size));
         return null;
     }
-    public Void visit(VarDec varDec) {
-        System.out.println("Declared variable: " + varDec.getVarName());
+
+    public Void visit(BlockItem blockItem) {
+        if(blockItem.getStatement() != null)
+            blockItem.getStatement().accept(this);
+        if(blockItem.getDec() != null)
+            blockItem.getDec().accept(this);
         return null;
     }
-    public Void visit(IfStmt ifStmt) {
-        ifStmt.getCondition().accept(this);
-        ifStmt.getIfBody().accept(this);
-        ifStmt.getElseBody().accept(this);
+
+    public Void visit(SelectionStmt selectionStmt) { // take care of expressions later
+        int ifSize = 0;
+        for(BlockItem blockItem : ((CompoundStmt)selectionStmt.getIfStmt()).getItems()) {
+            if(blockItem.getDec() != null) {
+                ifSize += blockItem.getDec().getDecSpecs().getDeclarationSpecifierSize();
+                blockItem.accept(this);
+                if(blockItem.getStatement() instanceof  SelectionStmt) {
+                    ifSize += ((SelectionStmt) blockItem.getStatement()).getElseIfSize();
+                    ifSize += ((SelectionStmt) blockItem.getStatement()).getElse();
+                    ifSize += 1;
+                }
+                else if(blockItem.getStatement() instanceof JumpStmt ||blockItem.getStatement() instanceof IterationStmt
+                        || blockItem.getStatement() instanceof ExpressionStmt)
+                    ifSize += 1;
+            }
+        }
+        System.out.println("If size is: " + ifSize);
+        int elseIfSize = 0;
+        for (Stmt stmt : selectionStmt.getElseIfStmt()) {
+            if (stmt instanceof CompoundStmt) {
+                stmt.accept(this);
+            }
+        }
+        int elseSize = 0;
+        if(((CompoundStmt)selectionStmt.getElseStmt()) != null) {
+            for(BlockItem blockItem : ((CompoundStmt)selectionStmt.getElseStmt()).getItems()) {
+                if(blockItem.getDec() != null) {
+                    elseSize += blockItem.getDec().getDecSpecs().getDeclarationSpecifierSize();
+                    blockItem.accept(this);
+                    if(blockItem.getStatement() instanceof  SelectionStmt) {
+                        elseSize += ((SelectionStmt) blockItem.getStatement()).getElseIfSize();
+                        elseSize += ((SelectionStmt) blockItem.getStatement()).getElse();
+                        elseSize += 1;
+                    }
+                    else if(blockItem.getStatement() instanceof JumpStmt ||blockItem.getStatement() instanceof IterationStmt
+                            || blockItem.getStatement() instanceof ExpressionStmt)
+                        elseSize += 1;
+                }
+
+            }
+        }
+        System.out.println("Else size is: " + elseSize);
         return null;
     }
-    public Void visit(FuncCallStmt funcCall) {
-        System.out.println("Called function: " + funcCall.getFunction().getName());
+
+    public Void visit(ExpressionStmt expressionStmt) {
+        expressionStmt.getExpression().accept(this);
         return null;
     }
-    public Void visit(UnaryExpr unaryExpr) {
-        unaryExpr.getOperand().accept(this);
+
+    public Void visit(IterationStmt iterationStmt) {
+        if(iterationStmt.getStmt() != null)
+            iterationStmt.getStmt().accept(this);
         return null;
     }
-    public Void visit(BinaryExpr binaryExpr) {
-        binaryExpr.getFirstOperand().accept(this);
-        binaryExpr.getSecondOperand().accept(this);
+
+    private int handleList(ListOfExpressions listOfExpressions) {
+        int depth = 0;
+        if(listOfExpressions.getIdentifier() != null) {
+            listOfExpressions.getIdentifier().accept(this);
+            depth = listOfExpressions.getPrefixOperatorsSize();
+        }
+
+        if(listOfExpressions.getExpression() != null) {
+            depth += listOfExpressions.getPrefixOperatorsSize();
+            if(listOfExpressions.getExpression() instanceof UnaryExpression)
+                depth += calcDepth1((UnaryExpression) listOfExpressions.getExpression());
+            else if(listOfExpressions.getExpression() instanceof BinaryExpression)
+                depth += calcDepth((BinaryExpression) listOfExpressions.getExpression());
+            else if(listOfExpressions.getExpression() instanceof Identifier)
+                listOfExpressions.getExpression().accept(this);
+        }
+        return depth;
+    }
+
+    private int calcDepth(BinaryExpression expr) {
+        int leftDepth = 0;
+        int rightDepth = 0;
+
+        if (expr.getFirstExpression() != null) {
+            if(expr.getFirstExpression() instanceof Identifier || expr.getFirstExpression() instanceof Constant)
+                leftDepth += 0;
+            else if(expr.getFirstExpression() instanceof UnaryExpression)
+                leftDepth = calcDepth1((UnaryExpression) expr.getFirstExpression());
+            else if(expr.getFirstExpression() instanceof ListOfExpressions)
+                leftDepth = handleList((ListOfExpressions) expr.getFirstExpression());
+            else
+                leftDepth = calcDepth((BinaryExpression) expr.getFirstExpression());
+        }
+
+        if (expr.getSecondExpression() != null) {
+            if(expr.getSecondExpression() instanceof Identifier || expr.getSecondExpression() instanceof Constant)
+                rightDepth += 0;
+            else if(expr.getSecondExpression() instanceof UnaryExpression)
+                rightDepth = calcDepth1((UnaryExpression) expr.getSecondExpression());
+            else if(expr.getSecondExpression() instanceof ListOfExpressions)
+                rightDepth = handleList((ListOfExpressions) expr.getSecondExpression());
+            else
+                rightDepth = calcDepth((BinaryExpression) expr.getSecondExpression());
+        }
+
+        return 1 + Math.max(leftDepth, rightDepth);
+    }
+
+    public Void visit(BinaryExpression binaryExpression) {
+        int max = calcDepth(binaryExpression);
+        System.out.println("maximum depth is: "+ max);
+        binaryExpression.getFirstExpression().accept(this);
+        binaryExpression.getSecondExpression().accept(this);
         return null;
     }
+
+    private int calcDepth1(UnaryExpression expr) {
+        int innerDepth = 0;
+
+        if (expr.getExpression() != null) {
+            if(expr.getExpression() instanceof Identifier || expr.getExpression() instanceof Constant)
+                innerDepth += 0;
+            else if(expr.getExpression() instanceof BinaryExpression)
+                innerDepth = calcDepth((BinaryExpression) expr.getExpression());
+            else
+                innerDepth = calcDepth1((UnaryExpression) expr.getExpression());
+        }
+
+        return 1 + innerDepth;
+    }
+
+    @Override
+    public Void visit(UnaryExpression unaryExpression) {
+        int max = calcDepth1(unaryExpression);
+        System.out.println("U maximum depth is: "+ max);
+        unaryExpression.getExpression().accept(this);
+        return null;
+    }
+
+    @Override
     public Void visit(Identifier identifier) {
-        System.out.println("Used variable: " + identifier.getName());
+        System.out.println("I maximum depth is: "+ 0);
         return null;
     }
 
-    public Void visit(IntVal int_Val) {
+    public Void visit(Declaration declaration) {
+        if(declaration.getInitDeclaratorList() != null)
+            declaration.getInitDeclaratorList().accept(this);
+        if(declaration.getDecSpecs() != null)
+            declaration.getDecSpecs().accept(this);
         return null;
     }
-    public Void visit(StringVal string_val){return null;}
-    public Void visit(BoolVal bool_val){return null;}
-    public Void visit(DoubleVal double_vals){return null;}
 
-    public Void visit(FuncCallExpr func_call_expr){
-        System.out.println("Called function: " + func_call_expr.getName());
+    public Void visit(InitDeclaratorList initDeclaratorList) {
+        if(initDeclaratorList.getInitDeclarators() != null) {
+            for(InitDeclarator initDeclarator: initDeclaratorList.getInitDeclarators())
+                initDeclarator.accept(this);
+        }
         return null;
     }
-    public Void visit(Return the_return){
-        the_return.getReturn_value().accept(this);
+
+    public Void visit(InitDeclarator initDeclarator) {
+        if(initDeclarator.getDeclarator() != null)
+            initDeclarator.getDeclarator().accept(this);
+        if(initDeclarator.getInitializer() != null)
+            initDeclarator.getInitializer().accept(this);
+        return null;
+    }
+
+    public Void visit(DirectDeclarator directDeclarator) {
+        if(directDeclarator.getIdentifier() != null)
+            directDeclarator.getIdentifier().accept(this);
+        return null;
+    }
+
+    public Void visit(Initializer initializer) {
+        if(initializer.getExpression() != null)
+            initializer.getExpression().accept(this);
+        return null;
+    }
+
+    public Void visit(ListOfExpressions listOfExpressions) {
+        if(listOfExpressions.getExpression() != null)
+            listOfExpressions.getExpression().accept(this);
+        if(listOfExpressions.getIdentifier() != null)
+            listOfExpressions.getIdentifier().accept(this);
         return null;
     }
 }
-
-

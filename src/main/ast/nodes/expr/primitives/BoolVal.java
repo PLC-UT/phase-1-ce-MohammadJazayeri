@@ -1,9 +1,9 @@
 package main.ast.nodes.expr.primitives;
 
-import main.ast.nodes.expr.Expr;
+import main.ast.nodes.declaration.TypeSpecifier;
 import main.visitor.IVisitor;
 
-public class BoolVal extends Expr {
+public class BoolVal extends TypeSpecifier {
     private boolean bool_val;
     public BoolVal(String bool_val){
         this.bool_val = bool_val.equals("true");

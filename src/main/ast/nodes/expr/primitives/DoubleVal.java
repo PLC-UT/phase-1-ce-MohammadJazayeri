@@ -1,9 +1,9 @@
 package main.ast.nodes.expr.primitives;
 
-import main.ast.nodes.expr.Expr;
+import main.ast.nodes.declaration.TypeSpecifier;
 import main.visitor.IVisitor;
 
-public class DoubleVal extends Expr {
+public class DoubleVal extends TypeSpecifier {
     private double double_val;
     public DoubleVal(String double_val){this.double_val =  Double.parseDouble(double_val);}
 

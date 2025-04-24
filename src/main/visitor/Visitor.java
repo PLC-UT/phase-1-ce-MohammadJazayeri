@@ -1,69 +1,61 @@
 package main.visitor;
 
-import main.ast.nodes.Program;
-import main.ast.nodes.Stmt.*;
-import main.ast.nodes.declaration.*;
-import main.ast.nodes.expr.*;
-import main.ast.nodes.expr.primitives.BoolVal;
-import main.ast.nodes.expr.primitives.DoubleVal;
-import main.ast.nodes.expr.primitives.IntVal;
-import main.ast.nodes.expr.primitives.StringVal;
-
-/*GOALs:
-*   1. print out scope changes each time a new scope starts
-*   2. print the identifier if it is initialized
-*   3. print the identifier if it is used
-*   4. print out the name of the function when it is defined
-*   5. print out the name of the function when it is used
-*
-* */
+import main.ast.nodes.*;
 
 public abstract class Visitor<T> implements IVisitor<T> {
     @Override
     public T visit(Program program) {
         return null;
     }
-    public T visit(Main main) {
+    public T visit(TranslationUnit translationUnit) {return null;}
+    public T visit(ExternalDeclaration externalDeclaration) {return null;}
+    public T visit(FunctionDefinition functionDefinition) {return null;}
+    public T visit(Declaration declaration) {return null;}
+    public T visit(DeclarationSpecifiers declarationSpecifiers) {return null;}
+    public T visit(DeclarationList declarationList) {return null;}
+    public T visit(CompoundStmt compoundStmt) {return null;}
+    public T visit(Identifier identifier) {return null;}
+    public T visit(Constant constant) {return null;}
+    public T visit(InitializerList initializerList) {return null;}
+    public T visit(TypeName typeName) {return null;}
+    public T visit(ArgumentExpressionList argumentExpressionList) {return null;}
+    public T visit(CastExpression castExpression) {return null;}
+    public T visit(TernaryExpression ternaryExpression) {return null;}
+    public T visit(TypeSpecifier typeSpecifier) {return null;}
+    public T visit(InitDeclaratorList initDeclaratorList) {return null;}
+    public T visit(InitDeclarator initDeclarator) {return null;}
+    public T visit(Initializer initializer) {return null;}
+    public T visit(SpecifierQualifierList specifierQualifierList) {return null;}
+    public T visit(DirectDeclarator directDeclarator) {return null;}
+    public T visit(ParameterList parameterList) {return null;}
+    public T visit(IdentifierList identifierList) {return null;}
+    public T visit(ParameterDeclaration parameterDeclaration) {return null;}
+    public T visit(AbstractDeclarator abstractDeclarator) {return null;}
+    public T visit(DirectAbstractDeclarator directAbstractDeclarator) {return null;}
+    public T visit(Designation designation) {return null;}
+    public T visit(Designator designator) {return null;}
+    public T visit(ExpressionStmt expressionStmt) {return null;}
+    public T visit(SelectionStmt selectionStmt) {return null;}
+    public T visit(IterationStmt iterationStmt) {return null;}
+    public T visit(JumpStmt jumpStmt) {return null;}
+    public T visit(BlockItem blockItem) {return null;}
+    public T visit(ForCondition forCondition) {return null;}
+    public T visit(ForDeclaration forDeclaration) {return null;}
+    public T visit(ForExpression forExpression) {return null;}
+    public T visit(BinaryExpression binaryExpression) {return null;}
+    public T visit(Casting casting) {return null;}
+    public T visit(A a) {
         return null;
     }
-
-    public T visit(FuncDec funcDec) {
+    public T visit(ArrayAccess arrayAccess) {
         return null;
     }
-
-    public T visit(Assign assign) {
+    public T visit(FunctionCall functionCall) { return null; }
+    public T visit(ListOfExpressions listOfExpressions) {
         return null;
     }
-    public T visit(VarDec varDec) {
+    public T visit(UnaryExpression unaryExpression) {
         return null;
     }
-    public T visit(IfStmt ifStmt) {
-        return null;
-    }
-    public T visit(FuncCallStmt funcCall) {
-        return null;
-    }
-    public T visit(UnaryExpr unaryExpr) {
-        return null;
-    }
-    public T visit(BinaryExpr binaryExpr) {
-        return null;
-    }
-    public T visit(Identifier identifier) {
-        return null;
-    }
-
-    public T visit(IntVal int_Val) {
-        return null;
-    }
-    public T visit(StringVal string_val){return null;}
-    public T visit(BoolVal bool_val){return null;}
-    public T visit(DoubleVal double_vals){return null;}
-    public T visit(FuncCallExpr func_call_expr){
-        return null;
-    }
-    public T visit(Return the_return){
-        return null;
-    }
-
 }
+

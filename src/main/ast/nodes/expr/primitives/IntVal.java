@@ -1,9 +1,9 @@
 package main.ast.nodes.expr.primitives;
 
-import main.ast.nodes.expr.Expr;
+import main.ast.nodes.declaration.TypeSpecifier;
 import main.visitor.IVisitor;
 
-public class IntVal extends Expr {
+public class IntVal extends TypeSpecifier {
     private int intVal;
     public IntVal(int intVal){this.intVal = intVal;}
 
