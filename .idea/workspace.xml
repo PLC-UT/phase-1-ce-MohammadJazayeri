@@ -1,77 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3dab7a72-2e02-4f87-b1cc-d73b3fc4d9fd" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/phase-1-ce-MohammadJazayeri.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.name" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.name" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/gen/main/grammar/SimpleLang.interp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/gen/main/grammar/SimpleLang.tokens" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/gen/main/grammar/SimpleLangBaseListener.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/gen/main/grammar/SimpleLangBaseVisitor.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/gen/main/grammar/SimpleLangLexer.interp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/gen/main/grammar/SimpleLangLexer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/gen/main/grammar/SimpleLangLexer.tokens" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/gen/main/grammar/SimpleLangListener.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/gen/main/grammar/SimpleLangParser.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/gen/main/grammar/SimpleLangVisitor.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SimpleLang/SimpleLang.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SimpleLang/main/ast/nodes/Node.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SimpleLang/main/ast/nodes/Program.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SimpleLang/main/ast/nodes/Stmt/Assign.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SimpleLang/main/ast/nodes/Stmt/FuncCallStmt.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SimpleLang/main/ast/nodes/Stmt/IfStmt.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SimpleLang/main/ast/nodes/Stmt/Return.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SimpleLang/main/ast/nodes/Stmt/Stmt.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SimpleLang/main/ast/nodes/Stmt/VarDec.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SimpleLang/main/ast/nodes/declaration/FuncDec.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SimpleLang/main/ast/nodes/declaration/Main.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SimpleLang/main/ast/nodes/expr/BinaryExpr.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SimpleLang/main/ast/nodes/expr/Expr.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SimpleLang/main/ast/nodes/expr/FuncCallExpr.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SimpleLang/main/ast/nodes/expr/Identifier.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SimpleLang/main/ast/nodes/expr/IntVal.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SimpleLang/main/ast/nodes/expr/UnaryExpr.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SimpleLang/main/ast/nodes/expr/operator/BinaryOperator.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SimpleLang/main/ast/nodes/expr/operator/UnaryOperator.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SimpleLang/main/ast/nodes/expr/primitives/BoolVal.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SimpleLang/main/ast/nodes/expr/primitives/DoubleVal.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SimpleLang/main/ast/nodes/expr/primitives/IntVal.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SimpleLang/main/ast/nodes/expr/primitives/StringVal.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SimpleLang/main/grammar/SimpleLang.g4" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SimpleLang/main/grammar/SimpleLang.interp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SimpleLang/main/grammar/SimpleLang.tokens" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SimpleLang/main/grammar/SimpleLangBaseListener.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SimpleLang/main/grammar/SimpleLangBaseVisitor.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SimpleLang/main/grammar/SimpleLangLexer.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SimpleLang/main/grammar/SimpleLangLexer.interp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SimpleLang/main/grammar/SimpleLangLexer.tokens" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SimpleLang/main/grammar/SimpleLangListener.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SimpleLang/main/grammar/SimpleLangParser$AssignContext.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SimpleLang/main/grammar/SimpleLangParser$ExprContext.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SimpleLang/main/grammar/SimpleLangParser$Func_callContext.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SimpleLang/main/grammar/SimpleLangParser$Func_decContext.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SimpleLang/main/grammar/SimpleLangParser$If_stmtContext.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SimpleLang/main/grammar/SimpleLangParser$MainContext.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SimpleLang/main/grammar/SimpleLangParser$Primary_exprContext.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SimpleLang/main/grammar/SimpleLangParser$ProgramContext.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SimpleLang/main/grammar/SimpleLangParser$Return_stmtContext.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SimpleLang/main/grammar/SimpleLangParser$StmtContext.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SimpleLang/main/grammar/SimpleLangParser$TypeContext.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SimpleLang/main/grammar/SimpleLangParser$Var_decContext.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SimpleLang/main/grammar/SimpleLangParser.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SimpleLang/main/grammar/SimpleLangVisitor.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SimpleLang/main/visitor/IVisitor.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SimpleLang/main/visitor/TestVisitor.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SimpleLang/main/visitor/Visitor.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/ast/nodes/expr/primitives/BoolVal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/ast/nodes/expr/primitives/BoolVal.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/ast/nodes/expr/primitives/DoubleVal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/ast/nodes/expr/primitives/DoubleVal.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/ast/nodes/expr/primitives/IntVal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/ast/nodes/expr/primitives/IntVal.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/grammar/SimpleLang.g4" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/grammar/SimpleLang.g4" afterDir="false" />
-    </list>
+    <list default="true" id="3dab7a72-2e02-4f87-b1cc-d73b3fc4d9fd" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -144,6 +74,7 @@
       <workItem from="1744557510893" duration="26000" />
       <workItem from="1744557605401" duration="51000" />
       <workItem from="1744564672427" duration="17000" />
+      <workItem from="1745478138175" duration="8000" />
     </task>
     <servers />
   </component>
