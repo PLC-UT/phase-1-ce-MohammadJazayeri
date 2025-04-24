@@ -1,11 +1,7 @@
-void main():
-    if (1):
-        int a
-    else if (0):
-        int a
-        int b
-    else:
-        int a
-        int b
+int main():
+    while (1):
+        int a,b
         int c
+
+    return 0
 end

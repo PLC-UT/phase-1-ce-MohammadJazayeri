@@ -40,6 +40,10 @@ public class IterationStmt extends Stmt {
         return line;
     }
 
+    public Expression getExpression() {
+        return expression;
+    }
+
     @Override
     public <T> T accept(IVisitor<T> visitor) {
         return visitor.visit(this);

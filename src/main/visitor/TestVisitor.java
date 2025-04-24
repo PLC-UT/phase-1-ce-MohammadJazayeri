@@ -166,8 +166,12 @@ public class TestVisitor extends Visitor<Void>{
 
     public Void visit(IterationStmt iterationStmt) {
         String loop = "for";
-        if(iterationStmt.getForCondition() == null)
+        String expr = "";
+        if(iterationStmt.getForCondition() == null) {
             loop = "while";
+            if(iterationStmt.getExpression() instanceof Constant)
+                expr = ((Constant) iterationStmt.getExpression()).getVal();
+        }
         if(iterationStmt.getStmt() != null) {
             int line = 0;
             int size = 0;
@@ -179,13 +183,15 @@ public class TestVisitor extends Visitor<Void>{
                         size += ((SelectionStmt) blockItem.getStatement()).getElseIfSize();
                         size += ((SelectionStmt) blockItem.getStatement()).getElse();
                     }
-                    if(blockItem.getDec() != null && blockItem.getDec().getInitDeclaratorList() != null) {
-                        size += blockItem.getDec().getInitDeclaratorList().getInitDeclaratorsSize() - 1;
-                    }
+//                    if(blockItem.getDec() != null && blockItem.getDec().getInitDeclaratorList() != null) {
+//                        size += blockItem.getDec().getInitDeclaratorList().getInitDeclaratorsSize() - 1;
+//                    }
                 }
                 size += compoundStmt.getItems().size();
             }
             line = iterationStmt.getLine();
+            if(loop == "while")
+                System.out.println("Line " + line + ": Expr " + expr);
             System.out.println("Line " + line + ": Stmt "+ loop + " = " + size);
             iterationStmt.getStmt().accept(this);
         }
@@ -318,6 +324,16 @@ public class TestVisitor extends Visitor<Void>{
             listOfExpressions.getExpression().accept(this);
         if(listOfExpressions.getIdentifier() != null)
             listOfExpressions.getIdentifier().accept(this);
+        return null;
+    }
+
+    @Override
+    public Void visit(JumpStmt jumpStmt) {
+        int line = jumpStmt.getLine();
+        String expr = "";
+        if(jumpStmt.getExpression() instanceof Constant)
+            expr = ((Constant) jumpStmt.getExpression()).getVal();
+        System.out.println("Line " + line + ": Expr " + expr);
         return null;
     }
 }

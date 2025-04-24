@@ -6,21 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="68365f85-a90e-432b-85fe-c0d47523b9ca" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gen/main/grammar/SimpleLangParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/gen/main/grammar/SimpleLangParser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SimpleLang/main/ast/nodes/Constant.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SimpleLang/main/ast/nodes/Constant.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SimpleLang/main/ast/nodes/SelectionStmt.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SimpleLang/main/ast/nodes/SelectionStmt.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SimpleLang/main/grammar/SimpleLang.g4" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SimpleLang/main/grammar/SimpleLang.g4" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SimpleLang/main/grammar/SimpleLangParser$ForConditionContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SimpleLang/main/grammar/SimpleLangParser$ForConditionContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SimpleLang/main/grammar/SimpleLangParser$ForDeclarationContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SimpleLang/main/grammar/SimpleLangParser$ForDeclarationContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SimpleLang/main/grammar/SimpleLangParser$ForExpressionContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SimpleLang/main/grammar/SimpleLangParser$ForExpressionContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SimpleLang/main/grammar/SimpleLangParser$IterationStatementContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SimpleLang/main/grammar/SimpleLangParser$IterationStatementContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SimpleLang/main/grammar/SimpleLangParser$JumpStatementContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SimpleLang/main/grammar/SimpleLangParser$JumpStatementContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SimpleLang/main/grammar/SimpleLangParser$SelectionStatementContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SimpleLang/main/grammar/SimpleLangParser$SelectionStatementContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SimpleLang/main/grammar/SimpleLangParser.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SimpleLang/main/grammar/SimpleLangParser.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleLang/main/ast/nodes/IterationStmt.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SimpleLang/main/ast/nodes/IterationStmt.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/SimpleLang/main/visitor/TestVisitor.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SimpleLang/main/visitor/TestVisitor.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/samples/sample4.sl" beforeDir="false" afterPath="$PROJECT_DIR$/samples/sample4.sl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/ast/nodes/Constant.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/ast/nodes/Constant.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/ast/nodes/SelectionStmt.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/ast/nodes/SelectionStmt.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/ast/nodes/IterationStmt.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/ast/nodes/IterationStmt.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/ast/nodes/JumpStmt.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/ast/nodes/JumpStmt.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/grammar/SimpleLang.g4" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/grammar/SimpleLang.g4" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/visitor/TestVisitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/visitor/TestVisitor.java" afterDir="false" />
     </list>
@@ -238,7 +228,7 @@
       <workItem from="1745489423111" duration="634000" />
       <workItem from="1745490278346" duration="9000" />
       <workItem from="1745490723619" duration="295000" />
-      <workItem from="1745491070291" duration="8079000" />
+      <workItem from="1745491070291" duration="9459000" />
     </task>
     <servers />
   </component>

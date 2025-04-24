@@ -303,9 +303,9 @@ forExpression returns [ForExpression forExprRet]
     : e1 = expression {$forExprRet = new ForExpression($e1.expressionRet);} (Comma e2 = expression {$forExprRet.addExpression($e2.expressionRet);})* ;
 
 jumpStatement returns [JumpStmt jumpStmtRet]
-    : ( t = Continue {$jumpStmtRet = new JumpStmt($t.text);}
-    | t = Break {$jumpStmtRet = new JumpStmt($t.text);}
-    | t = Return {$jumpStmtRet = new JumpStmt($t.text);} (e = expression {$jumpStmtRet.setExpression($e.expressionRet);})? ) Semi ;
+    : ( t = Continue {$jumpStmtRet = new JumpStmt($t.text); $jumpStmtRet.setLine($t.line);}
+    | t = Break {$jumpStmtRet = new JumpStmt($t.text); $jumpStmtRet.setLine($t.line);}
+    | t = Return {$jumpStmtRet = new JumpStmt($t.text); $jumpStmtRet.setLine($t.line);} (e = expression {$jumpStmtRet.setExpression($e.expressionRet);})? ) Semi ;
 
 Break                 : 'break'                 ;
 Char                  : 'char'                  ;

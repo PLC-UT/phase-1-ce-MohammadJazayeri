@@ -4517,21 +4517,21 @@ public class SimpleLangParser extends Parser {
 				{
 				setState(838);
 				((JumpStatementContext)_localctx).t = match(Continue);
-				((JumpStatementContext)_localctx).jumpStmtRet =  new JumpStmt((((JumpStatementContext)_localctx).t!=null?((JumpStatementContext)_localctx).t.getText():null));
+				((JumpStatementContext)_localctx).jumpStmtRet =  new JumpStmt((((JumpStatementContext)_localctx).t!=null?((JumpStatementContext)_localctx).t.getText():null)); _localctx.jumpStmtRet.setLine((((JumpStatementContext)_localctx).t!=null?((JumpStatementContext)_localctx).t.getLine():0));
 				}
 				break;
 			case Break:
 				{
 				setState(840);
 				((JumpStatementContext)_localctx).t = match(Break);
-				((JumpStatementContext)_localctx).jumpStmtRet =  new JumpStmt((((JumpStatementContext)_localctx).t!=null?((JumpStatementContext)_localctx).t.getText():null));
+				((JumpStatementContext)_localctx).jumpStmtRet =  new JumpStmt((((JumpStatementContext)_localctx).t!=null?((JumpStatementContext)_localctx).t.getText():null)); _localctx.jumpStmtRet.setLine((((JumpStatementContext)_localctx).t!=null?((JumpStatementContext)_localctx).t.getLine():0));
 				}
 				break;
 			case Return:
 				{
 				setState(842);
 				((JumpStatementContext)_localctx).t = match(Return);
-				((JumpStatementContext)_localctx).jumpStmtRet =  new JumpStmt((((JumpStatementContext)_localctx).t!=null?((JumpStatementContext)_localctx).t.getText():null));
+				((JumpStatementContext)_localctx).jumpStmtRet =  new JumpStmt((((JumpStatementContext)_localctx).t!=null?((JumpStatementContext)_localctx).t.getText():null)); _localctx.jumpStmtRet.setLine((((JumpStatementContext)_localctx).t!=null?((JumpStatementContext)_localctx).t.getLine():0));
 				setState(847);
 				_errHandler.sync(this);
 				_la = _input.LA(1);

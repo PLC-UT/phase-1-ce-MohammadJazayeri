@@ -5,6 +5,7 @@ import main.visitor.IVisitor;
 public class JumpStmt extends Stmt {
     private String type;
     private Expression expression;
+    private int line;
 
     public JumpStmt(String type) {
         this.type = type;
@@ -12,6 +13,20 @@ public class JumpStmt extends Stmt {
 
     public void setExpression(Expression expression) {
         this.expression = expression;
+    }
+
+    @Override
+    public void setLine(int line) {
+        this.line = line;
+    }
+
+    @Override
+    public int getLine() {
+        return line;
+    }
+
+    public Expression getExpression() {
+        return expression;
     }
 
     @Override
