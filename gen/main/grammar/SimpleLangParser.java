@@ -559,6 +559,7 @@ public class SimpleLangParser extends Parser {
 		public ExpressionContext e3;
 		public AssignmentOperatorContext a;
 		public ArgumentExpressionListContext a1;
+		public Token o;
 		public TerminalNode Identifier() { return getToken(SimpleLangParser.Identifier, 0); }
 		public TerminalNode Constant() { return getToken(SimpleLangParser.Constant, 0); }
 		public List<TerminalNode> StringLiteral() { return getTokens(SimpleLangParser.StringLiteral); }
@@ -1252,8 +1253,10 @@ public class SimpleLangParser extends Parser {
 						setState(301);
 						if (!(precpred(_ctx, 17))) throw new FailedPredicateException(this, "precpred(_ctx, 17)");
 						setState(302);
-						match(PlusPlus);
-						((ExpressionContext)_localctx).expressionRet =  new UnaryExpression(((ExpressionContext)_localctx).e.expressionRet, UnaryOperator.POST_INC);
+						((ExpressionContext)_localctx).o = match(PlusPlus);
+						UnaryExpression expr = new UnaryExpression(((ExpressionContext)_localctx).e.expressionRet, UnaryOperator.POST_INC);
+						                                       expr.setLine((((ExpressionContext)_localctx).o!=null?((ExpressionContext)_localctx).o.getLine():0));
+						                                       ((ExpressionContext)_localctx).expressionRet =  expr;
 						}
 						break;
 					case 16:
@@ -1264,8 +1267,10 @@ public class SimpleLangParser extends Parser {
 						setState(304);
 						if (!(precpred(_ctx, 16))) throw new FailedPredicateException(this, "precpred(_ctx, 16)");
 						setState(305);
-						match(MinusMinus);
-						((ExpressionContext)_localctx).expressionRet =  new UnaryExpression(((ExpressionContext)_localctx).e.expressionRet, UnaryOperator.POST_DEC);
+						((ExpressionContext)_localctx).o = match(MinusMinus);
+						UnaryExpression expr = new UnaryExpression(((ExpressionContext)_localctx).e.expressionRet, UnaryOperator.POST_DEC);
+						                                              expr.setLine((((ExpressionContext)_localctx).o!=null?((ExpressionContext)_localctx).o.getLine():0));
+						                                              ((ExpressionContext)_localctx).expressionRet =  expr;
 						}
 						break;
 					case 17:

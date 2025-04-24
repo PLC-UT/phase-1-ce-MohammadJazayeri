@@ -326,6 +326,10 @@ public class TestVisitor extends Visitor<Void>{
                 line = ((BinaryExpression) initializer.getExpression()).getLine();
                 val = ((BinaryExpression) initializer.getExpression()).getOperator();
             }
+            else if(initializer.getExpression() instanceof UnaryExpression) {
+                line = ((UnaryExpression) initializer.getExpression()).getLine();
+                val = ((UnaryExpression) initializer.getExpression()).getOperator();
+            }
             System.out.println("Line " + line +": Expr " + val);
             initializer.getExpression().accept(this);
         }

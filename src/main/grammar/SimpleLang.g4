@@ -38,8 +38,12 @@ expression returns [Expression expressionRet]
   | LeftParen t = typeName RightParen LeftBrace i1 = initializerList {$expressionRet = new A($t.typeNameRet, $i1.initialList);}Comma? RightBrace
   | e1 = expression LeftBracket e2 = expression {$expressionRet = new ArrayAccess($e1.expressionRet, $e2.expressionRet);} RightBracket                                // Array indexing
   | e = expression {FunctionCall functionCall = new FunctionCall($e.expressionRet);} LeftParen (a1 = argumentExpressionList {functionCall.setArgumentExpressionList($a1.argExprList);})? {$expressionRet = functionCall;}RightParen                       // Function call
-  | e = expression PlusPlus {$expressionRet = new UnaryExpression($e.expressionRet, UnaryOperator.POST_INC);}                                                          // Postfix increment
-  | e = expression MinusMinus {$expressionRet = new UnaryExpression($e.expressionRet, UnaryOperator.POST_DEC);}                                                        // Postfix decrement
+  | e = expression o = PlusPlus {UnaryExpression expr = new UnaryExpression($e.expressionRet, UnaryOperator.POST_INC);
+                             expr.setLine($o.line);
+                             $expressionRet = expr;}                                                          // Postfix increment
+  | e = expression o = MinusMinus {UnaryExpression expr = new UnaryExpression($e.expressionRet, UnaryOperator.POST_DEC);
+                                    expr.setLine($o.line);
+                                    $expressionRet = expr;}                                                        // Postfix decrement
   | {ListOfExpressions l = new ListOfExpressions();} (p = PlusPlus {l.addPrefixOperators($p.text);}
   | m = MinusMinus {l.addPrefixOperators($m.text);}
   | s = Sizeof {l.addPrefixOperators($s.text);})* (                                          // Prefix operators (zero or more)
