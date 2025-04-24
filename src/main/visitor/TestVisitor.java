@@ -180,8 +180,9 @@ public class TestVisitor extends Visitor<Void>{
                 for (BlockItem blockItem : compoundStmt.getItems()) {
 //                    blockItem.accept(this);
                     if(blockItem.getStatement() instanceof  SelectionStmt) {
-                        size += ((SelectionStmt) blockItem.getStatement()).getElseIfSize();
-                        size += ((SelectionStmt) blockItem.getStatement()).getElse();
+//                        size += ((SelectionStmt) blockItem.getStatement()).getElseIfSize();
+//                        size += ((SelectionStmt) blockItem.getStatement()).getElse();
+                        size += 0;
                     }
 //                    if(blockItem.getDec() != null && blockItem.getDec().getInitDeclaratorList() != null) {
 //                        size += blockItem.getDec().getInitDeclaratorList().getInitDeclaratorsSize() - 1;
