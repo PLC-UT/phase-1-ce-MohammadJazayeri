@@ -285,11 +285,11 @@ selectionStatement returns [SelectionStmt selectionStmtRet]
 
 iterationStatement returns [IterationStmt iterStmtRet]
     : {$iterStmtRet = new IterationStmt();}
-     While LeftParen e = expression {$iterStmtRet.setExpression($e.expressionRet);} RightParen s = statement {$iterStmtRet.setStmt($s.stmtRet);}
+     w = While LeftParen e = expression {$iterStmtRet.setExpression($e.expressionRet); $iterStmtRet.setLine($w.line);} RightParen s = statement {$iterStmtRet.setStmt($s.stmtRet);}
     |{$iterStmtRet = new IterationStmt();}
-     Do s = statement {$iterStmtRet.setStmt($s.stmtRet);} While LeftParen e = expression {$iterStmtRet.setExpression($e.expressionRet);} RightParen Semi
+     d = Do s = statement {$iterStmtRet.setStmt($s.stmtRet); $iterStmtRet.setLine($d.line);} While LeftParen e = expression {$iterStmtRet.setExpression($e.expressionRet);} RightParen Semi
     |{$iterStmtRet = new IterationStmt();}
-     For LeftParen f = forCondition {$iterStmtRet.setForCondition($f.forConditionRet);} RightParen s = statement {$iterStmtRet.setStmt($s.stmtRet);} ;
+     fo = For LeftParen f = forCondition {$iterStmtRet.setForCondition($f.forConditionRet); $iterStmtRet.setLine($fo.line);} RightParen s = statement {$iterStmtRet.setStmt($s.stmtRet);} ;
 
 forCondition returns [ForCondition forConditionRet]
     : {$forConditionRet = new ForCondition();}

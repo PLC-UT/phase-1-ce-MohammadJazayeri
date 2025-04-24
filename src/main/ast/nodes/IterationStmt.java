@@ -6,6 +6,7 @@ public class IterationStmt extends Stmt {
     private Expression expression;
     private Stmt stmt;
     private ForCondition forCondition;
+    private int line;
 
     public IterationStmt() {}
 
@@ -23,6 +24,20 @@ public class IterationStmt extends Stmt {
 
     public Stmt getStmt() {
         return stmt;
+    }
+
+    public ForCondition getForCondition() {
+        return forCondition;
+    }
+
+    @Override
+    public void setLine(int line) {
+        this.line = line;
+    }
+
+    @Override
+    public int getLine() {
+        return line;
     }
 
     @Override

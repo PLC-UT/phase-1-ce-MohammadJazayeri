@@ -1,7 +1,5 @@
-void foo():
-    int a
-end
-
 void main():
-    int a
+    for (;;):
+        int a
+        int b
 end

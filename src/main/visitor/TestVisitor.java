@@ -30,13 +30,23 @@ public class TestVisitor extends Visitor<Void>{
             System.out.print("Line "+line +": Stmt function " + name + " = ");
         }
 
-
         if(functionDefinition.getDeclarationList() != null)
             functionDefinition.getDeclarationList().accept(this);
-
-        if(functionDefinition.getBody() != null)
+        int size = 0;
+        if(functionDefinition.getBody() != null) {
+            for (BlockItem blockItem : functionDefinition.getBody().getItems()) {
+                if(blockItem.getStatement() instanceof  SelectionStmt) {
+                    size += ((SelectionStmt) blockItem.getStatement()).getElseIfSize();
+                    size += ((SelectionStmt) blockItem.getStatement()).getElse();
+                }
+                if(blockItem.getDec() != null && blockItem.getDec().getInitDeclaratorList() != null) {
+                    size += blockItem.getDec().getInitDeclaratorList().getInitDeclaratorsSize() - 1;
+                }
+            }
+            System.out.println((functionDefinition.getBody().getItems().size() +size));
             functionDefinition.getBody().accept(this);
 
+        }
         return null;
     }
 
@@ -57,7 +67,7 @@ public class TestVisitor extends Visitor<Void>{
                 size += blockItem.getDec().getInitDeclaratorList().getInitDeclaratorsSize() - 1;
             }
         }
-        System.out.println((compoundStmt.getItems().size() + size));
+//        System.out.println((compoundStmt.getItems().size() + size));
         return null;
     }
 
@@ -120,8 +130,30 @@ public class TestVisitor extends Visitor<Void>{
     }
 
     public Void visit(IterationStmt iterationStmt) {
-        if(iterationStmt.getStmt() != null)
+        String loop = "for";
+        if(iterationStmt.getForCondition() == null)
+            loop = "while";
+        if(iterationStmt.getStmt() != null) {
+            int line = 0;
+            int size = 0;
+            if(iterationStmt.getStmt() instanceof CompoundStmt) {
+                CompoundStmt compoundStmt = (CompoundStmt) iterationStmt.getStmt();
+                for (BlockItem blockItem : compoundStmt.getItems()) {
+                    blockItem.accept(this);
+                    if(blockItem.getStatement() instanceof  SelectionStmt) {
+                        size += ((SelectionStmt) blockItem.getStatement()).getElseIfSize();
+                        size += ((SelectionStmt) blockItem.getStatement()).getElse();
+                    }
+                    if(blockItem.getDec() != null && blockItem.getDec().getInitDeclaratorList() != null) {
+                        size += blockItem.getDec().getInitDeclaratorList().getInitDeclaratorsSize() - 1;
+                    }
+                }
+                size += compoundStmt.getItems().size();
+            }
+            line = iterationStmt.getLine();
+            System.out.println("Line " + line + ": Stmt "+ loop + " = " + size);
             iterationStmt.getStmt().accept(this);
+        }
         return null;
     }
 

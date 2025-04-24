@@ -4096,20 +4096,23 @@ public class SimpleLangParser extends Parser {
 	@SuppressWarnings("CheckReturnValue")
 	public static class IterationStatementContext extends ParserRuleContext {
 		public IterationStmt iterStmtRet;
+		public Token w;
 		public ExpressionContext e;
 		public StatementContext s;
+		public Token d;
+		public Token fo;
 		public ForConditionContext f;
-		public TerminalNode While() { return getToken(SimpleLangParser.While, 0); }
 		public TerminalNode LeftParen() { return getToken(SimpleLangParser.LeftParen, 0); }
 		public TerminalNode RightParen() { return getToken(SimpleLangParser.RightParen, 0); }
+		public TerminalNode While() { return getToken(SimpleLangParser.While, 0); }
 		public ExpressionContext expression() {
 			return getRuleContext(ExpressionContext.class,0);
 		}
 		public StatementContext statement() {
 			return getRuleContext(StatementContext.class,0);
 		}
-		public TerminalNode Do() { return getToken(SimpleLangParser.Do, 0); }
 		public TerminalNode Semi() { return getToken(SimpleLangParser.Semi, 0); }
+		public TerminalNode Do() { return getToken(SimpleLangParser.Do, 0); }
 		public TerminalNode For() { return getToken(SimpleLangParser.For, 0); }
 		public ForConditionContext forCondition() {
 			return getRuleContext(ForConditionContext.class,0);
@@ -4145,12 +4148,12 @@ public class SimpleLangParser extends Parser {
 				{
 				((IterationStatementContext)_localctx).iterStmtRet =  new IterationStmt();
 				setState(767);
-				match(While);
+				((IterationStatementContext)_localctx).w = match(While);
 				setState(768);
 				match(LeftParen);
 				setState(769);
 				((IterationStatementContext)_localctx).e = expression(0);
-				_localctx.iterStmtRet.setExpression(((IterationStatementContext)_localctx).e.expressionRet);
+				_localctx.iterStmtRet.setExpression(((IterationStatementContext)_localctx).e.expressionRet); _localctx.iterStmtRet.setLine((((IterationStatementContext)_localctx).w!=null?((IterationStatementContext)_localctx).w.getLine():0));
 				setState(771);
 				match(RightParen);
 				setState(772);
@@ -4163,10 +4166,10 @@ public class SimpleLangParser extends Parser {
 				{
 				((IterationStatementContext)_localctx).iterStmtRet =  new IterationStmt();
 				setState(776);
-				match(Do);
+				((IterationStatementContext)_localctx).d = match(Do);
 				setState(777);
 				((IterationStatementContext)_localctx).s = statement();
-				_localctx.iterStmtRet.setStmt(((IterationStatementContext)_localctx).s.stmtRet);
+				_localctx.iterStmtRet.setStmt(((IterationStatementContext)_localctx).s.stmtRet); _localctx.iterStmtRet.setLine((((IterationStatementContext)_localctx).d!=null?((IterationStatementContext)_localctx).d.getLine():0));
 				setState(779);
 				match(While);
 				setState(780);
@@ -4185,12 +4188,12 @@ public class SimpleLangParser extends Parser {
 				{
 				((IterationStatementContext)_localctx).iterStmtRet =  new IterationStmt();
 				setState(787);
-				match(For);
+				((IterationStatementContext)_localctx).fo = match(For);
 				setState(788);
 				match(LeftParen);
 				setState(789);
 				((IterationStatementContext)_localctx).f = forCondition();
-				_localctx.iterStmtRet.setForCondition(((IterationStatementContext)_localctx).f.forConditionRet);
+				_localctx.iterStmtRet.setForCondition(((IterationStatementContext)_localctx).f.forConditionRet); _localctx.iterStmtRet.setLine((((IterationStatementContext)_localctx).fo!=null?((IterationStatementContext)_localctx).fo.getLine():0));
 				setState(791);
 				match(RightParen);
 				setState(792);
