@@ -18,6 +18,7 @@ public class FunctionDefinition extends ExternalDeclaration {
 
     public void setDeclarator(Declarator declarator) {
         this.declarator = declarator;
+        this.line = declarator.getLine();
     }
 
     public void setBody(CompoundStmt body) {

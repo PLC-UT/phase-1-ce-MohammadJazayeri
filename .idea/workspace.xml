@@ -4,7 +4,133 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="68365f85-a90e-432b-85fe-c0d47523b9ca" name="Changes" comment="" />
+    <list default="true" id="68365f85-a90e-432b-85fe-c0d47523b9ca" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gen/main/grammar/SimpleLang.interp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gen/main/grammar/SimpleLang.tokens" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gen/main/grammar/SimpleLangBaseListener.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gen/main/grammar/SimpleLangBaseVisitor.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gen/main/grammar/SimpleLangLexer.interp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gen/main/grammar/SimpleLangLexer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gen/main/grammar/SimpleLangLexer.tokens" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gen/main/grammar/SimpleLangListener.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gen/main/grammar/SimpleLangParser.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gen/main/grammar/SimpleLangVisitor.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleLang/SimpleLang.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleLang/main/ast/nodes/A.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleLang/main/ast/nodes/AbstractDeclarator.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleLang/main/ast/nodes/ArgumentExpressionList.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleLang/main/ast/nodes/ArrayAccess.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleLang/main/ast/nodes/Assignment.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleLang/main/ast/nodes/BinaryExpression.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleLang/main/ast/nodes/BinaryOperator.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleLang/main/ast/nodes/BlockItem.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleLang/main/ast/nodes/CastExpression.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleLang/main/ast/nodes/Casting.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleLang/main/ast/nodes/CompoundStmt.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleLang/main/ast/nodes/Constant.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleLang/main/ast/nodes/Declaration.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleLang/main/ast/nodes/DeclarationList.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleLang/main/ast/nodes/DeclarationSpecifier.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleLang/main/ast/nodes/DeclarationSpecifiers.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleLang/main/ast/nodes/Declarator.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleLang/main/ast/nodes/Designation.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleLang/main/ast/nodes/Designator.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleLang/main/ast/nodes/DirectAbstractDeclarator.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleLang/main/ast/nodes/DirectDeclarator.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleLang/main/ast/nodes/Expression.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleLang/main/ast/nodes/ExpressionStmt.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleLang/main/ast/nodes/ExternalDeclaration.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleLang/main/ast/nodes/ForCondition.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleLang/main/ast/nodes/ForDeclaration.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleLang/main/ast/nodes/ForExpression.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleLang/main/ast/nodes/FunctionCall.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleLang/main/ast/nodes/FunctionDefinition.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleLang/main/ast/nodes/Identifier.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleLang/main/ast/nodes/IdentifierList.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleLang/main/ast/nodes/InitDeclarator.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleLang/main/ast/nodes/InitDeclaratorList.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleLang/main/ast/nodes/Initializer.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleLang/main/ast/nodes/InitializerList.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleLang/main/ast/nodes/IterationStmt.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleLang/main/ast/nodes/JumpStmt.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleLang/main/ast/nodes/ListOfExpressions.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleLang/main/ast/nodes/Node.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleLang/main/ast/nodes/ParameterDeclaration.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleLang/main/ast/nodes/ParameterList.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleLang/main/ast/nodes/Program.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleLang/main/ast/nodes/SelectionStmt.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleLang/main/ast/nodes/SpecifierQualifierList.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleLang/main/ast/nodes/Stmt.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleLang/main/ast/nodes/TernaryExpression.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleLang/main/ast/nodes/TranslationUnit.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleLang/main/ast/nodes/TypeName.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleLang/main/ast/nodes/TypeSpecifier.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleLang/main/ast/nodes/UnaryExpression.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleLang/main/ast/nodes/UnaryOperator.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleLang/main/grammar/SimpleLang.g4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleLang/main/grammar/SimpleLang.interp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleLang/main/grammar/SimpleLang.tokens" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleLang/main/grammar/SimpleLangBaseListener.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleLang/main/grammar/SimpleLangBaseVisitor.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleLang/main/grammar/SimpleLangLexer.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleLang/main/grammar/SimpleLangLexer.interp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleLang/main/grammar/SimpleLangLexer.tokens" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleLang/main/grammar/SimpleLangListener.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleLang/main/grammar/SimpleLangParser$AbstractDeclaratorContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleLang/main/grammar/SimpleLangParser$ArgumentExpressionListContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleLang/main/grammar/SimpleLangParser$AssignmentOperatorContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleLang/main/grammar/SimpleLangParser$BlockItemContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleLang/main/grammar/SimpleLangParser$CastExpressionContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleLang/main/grammar/SimpleLangParser$CompoundStatementContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleLang/main/grammar/SimpleLangParser$DeclarationContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleLang/main/grammar/SimpleLangParser$DeclarationListContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleLang/main/grammar/SimpleLangParser$DeclarationSpecifierContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleLang/main/grammar/SimpleLangParser$DeclarationSpecifiersContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleLang/main/grammar/SimpleLangParser$DeclaratorContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleLang/main/grammar/SimpleLangParser$DesignationContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleLang/main/grammar/SimpleLangParser$DesignatorContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleLang/main/grammar/SimpleLangParser$DirectAbstractDeclaratorContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleLang/main/grammar/SimpleLangParser$DirectDeclaratorContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleLang/main/grammar/SimpleLangParser$ExpressionContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleLang/main/grammar/SimpleLangParser$ExpressionStatementContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleLang/main/grammar/SimpleLangParser$ExternalDeclarationContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleLang/main/grammar/SimpleLangParser$ForConditionContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleLang/main/grammar/SimpleLangParser$ForDeclarationContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleLang/main/grammar/SimpleLangParser$ForExpressionContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleLang/main/grammar/SimpleLangParser$FunctionDefinitionContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleLang/main/grammar/SimpleLangParser$IdentifierListContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleLang/main/grammar/SimpleLangParser$InitDeclaratorContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleLang/main/grammar/SimpleLangParser$InitDeclaratorListContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleLang/main/grammar/SimpleLangParser$InitializerContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleLang/main/grammar/SimpleLangParser$InitializerListContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleLang/main/grammar/SimpleLangParser$IterationStatementContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleLang/main/grammar/SimpleLangParser$JumpStatementContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleLang/main/grammar/SimpleLangParser$ParameterDeclarationContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleLang/main/grammar/SimpleLangParser$ParameterListContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleLang/main/grammar/SimpleLangParser$PointerContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleLang/main/grammar/SimpleLangParser$ProgramContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleLang/main/grammar/SimpleLangParser$SelectionStatementContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleLang/main/grammar/SimpleLangParser$SpecifierQualifierListContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleLang/main/grammar/SimpleLangParser$StatementContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleLang/main/grammar/SimpleLangParser$TranslationUnitContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleLang/main/grammar/SimpleLangParser$TypeNameContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleLang/main/grammar/SimpleLangParser$TypeSpecifierContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleLang/main/grammar/SimpleLangParser$UnaryOperatorContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleLang/main/grammar/SimpleLangParser.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleLang/main/grammar/SimpleLangVisitor.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleLang/main/visitor/Converter.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleLang/main/visitor/IVisitor.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleLang/main/visitor/TestVisitor.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleLang/main/visitor/Visitor.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/samples/sample4.sl" beforeDir="false" afterPath="$PROJECT_DIR$/samples/sample4.sl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/ast/nodes/Declarator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/ast/nodes/Declarator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/ast/nodes/DirectDeclarator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/ast/nodes/DirectDeclarator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/ast/nodes/FunctionDefinition.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/ast/nodes/FunctionDefinition.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/grammar/SimpleLang.g4" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/grammar/SimpleLang.g4" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/visitor/TestVisitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/visitor/TestVisitor.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -20,7 +146,7 @@
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -218,6 +344,8 @@
       <workItem from="1745408652758" duration="1383000" />
       <workItem from="1745489423111" duration="634000" />
       <workItem from="1745490278346" duration="9000" />
+      <workItem from="1745490723619" duration="295000" />
+      <workItem from="1745491070291" duration="2817000" />
     </task>
     <servers />
   </component>
@@ -256,6 +384,17 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -1,4 +1,4 @@
-// Generated from C:/UT university/PLC/CA/src/main/grammar/SimpleLang.g4 by ANTLR 4.13.1
+// Generated from C:/UT university/PLC/CA1/phase-1-ce-MohammadJazayeri/src/main/grammar/SimpleLang.g4 by ANTLR 4.13.1
 package main.grammar;
 
     import main.ast.nodes.*;
@@ -413,7 +413,7 @@ public class SimpleLangParser extends Parser {
 			{
 			setState(111);
 			((FunctionDefinitionContext)_localctx).d = declarator();
-			_localctx.funcDefRet.setDeclarator(((FunctionDefinitionContext)_localctx).d.dec);
+			_localctx.funcDefRet.setDeclarator(((FunctionDefinitionContext)_localctx).d.dec); _localctx.funcDefRet.setLine(((FunctionDefinitionContext)_localctx).d.dec.getLine());
 			}
 			setState(117);
 			_errHandler.sync(this);
@@ -2397,7 +2397,7 @@ public class SimpleLangParser extends Parser {
 			{
 			setState(480);
 			((DeclaratorContext)_localctx).d = directDeclarator(0);
-			((DeclaratorContext)_localctx).dec =  ((DeclaratorContext)_localctx).d.directDec;
+			((DeclaratorContext)_localctx).dec =  new Declarator(); _localctx.dec.setDirectDeclarator(((DeclaratorContext)_localctx).d.directDec); _localctx.dec.setLine(((DeclaratorContext)_localctx).d.directDec.getLine());
 			}
 			}
 		}
@@ -2486,7 +2486,7 @@ public class SimpleLangParser extends Parser {
 				{
 				setState(485);
 				((DirectDeclaratorContext)_localctx).i = match(Identifier);
-				_localctx.directDec.setIdentifier((((DirectDeclaratorContext)_localctx).i!=null?((DirectDeclaratorContext)_localctx).i.getText():null));
+				_localctx.directDec.setIdentifier((((DirectDeclaratorContext)_localctx).i!=null?((DirectDeclaratorContext)_localctx).i.getText():null)); _localctx.directDec.setLine((((DirectDeclaratorContext)_localctx).i!=null?((DirectDeclaratorContext)_localctx).i.getLine():0));
 				}
 				}
 				break;
@@ -2498,7 +2498,7 @@ public class SimpleLangParser extends Parser {
 				{
 				setState(489);
 				((DirectDeclaratorContext)_localctx).d = declarator();
-				_localctx.directDec.setDeclarator(((DirectDeclaratorContext)_localctx).d.dec);
+				_localctx.directDec.setDeclarator(((DirectDeclaratorContext)_localctx).d.dec); _localctx.directDec.setLine(((DirectDeclaratorContext)_localctx).d.dec.getLine());
 				}
 				setState(492);
 				match(RightParen);
@@ -2527,7 +2527,7 @@ public class SimpleLangParser extends Parser {
 						setState(496);
 						if (!(precpred(_ctx, 2))) throw new FailedPredicateException(this, "precpred(_ctx, 2)");
 						((DirectDeclaratorContext)_localctx).directDec =  new DirectDeclarator();
-						_localctx.directDec.setDirectDeclarator(((DirectDeclaratorContext)_localctx).d_.directDec);
+						_localctx.directDec.setDirectDeclarator(((DirectDeclaratorContext)_localctx).d_.directDec); _localctx.directDec.setLine(((DirectDeclaratorContext)_localctx).d_.directDec.getLine());
 						setState(499);
 						match(LeftBracket);
 						setState(503);
@@ -2553,7 +2553,7 @@ public class SimpleLangParser extends Parser {
 						setState(506);
 						if (!(precpred(_ctx, 1))) throw new FailedPredicateException(this, "precpred(_ctx, 1)");
 						((DirectDeclaratorContext)_localctx).directDec =  new DirectDeclarator();
-						_localctx.directDec.setDirectDeclarator(((DirectDeclaratorContext)_localctx).d__.directDec);
+						_localctx.directDec.setDirectDeclarator(((DirectDeclaratorContext)_localctx).d__.directDec); _localctx.directDec.setLine(((DirectDeclaratorContext)_localctx).d__.directDec.getLine());
 						setState(509);
 						match(LeftParen);
 						setState(518);

@@ -21,7 +21,7 @@ externalDeclaration returns [ExternalDeclaration externalDecRet]
 functionDefinition returns [FunctionDefinition funcDefRet]
     : {$funcDefRet = new FunctionDefinition();}
      (d1 = declarationSpecifiers {$funcDefRet.setDeclarationSpecifiers($d1.decSpecsRet);})?
-     (d = declarator {$funcDefRet.setDeclarator($d.dec);})
+     (d = declarator {$funcDefRet.setDeclarator($d.dec); $funcDefRet.setLine($d.dec.getLine());})
      (d2 = declarationList {$funcDefRet.setDeclarationList($d2.decList);})?
      (c = compoundStatement {$funcDefRet.setBody($c.CStmt);})
      (s = Semi | 'end')*;
@@ -202,13 +202,13 @@ specifierQualifierList returns [SpecifierQualifierList specQualList]
      (s = specifierQualifierList {$specQualList.setSpecifierQualifierList($s.specQualList);})? ;
 
 declarator returns [Declarator dec]
-    : pointer? (d = directDeclarator {$dec = $d.directDec;}) ;
+    : pointer? (d = directDeclarator {$dec = new Declarator(); $dec.setDirectDeclarator($d.directDec); $dec.setLine($d.directDec.getLine());}) ;
 
 directDeclarator returns [DirectDeclarator directDec]
-    : {$directDec = new DirectDeclarator();}(i = Identifier {$directDec.setIdentifier($i.text);})
-    | LeftParen {$directDec = new DirectDeclarator();} (d = declarator {$directDec.setDeclarator($d.dec);}) RightParen
-    | d_ = directDeclarator {$directDec = new DirectDeclarator();} {$directDec.setDirectDeclarator($d_.directDec);} LeftBracket (e = expression {$directDec.setExpression($e.expressionRet);})? RightBracket
-    | d__ = directDeclarator {$directDec = new DirectDeclarator();} {$directDec.setDirectDeclarator($d__.directDec);} LeftParen  (p = parameterList {$directDec.setParameterList($p.paramList);}| (i1 = identifierList {$directDec.setIdentifierList($i1.idList);})?) RightParen ;
+    : {$directDec = new DirectDeclarator();}(i = Identifier {$directDec.setIdentifier($i.text); $directDec.setLine($i.line);})
+    | LeftParen {$directDec = new DirectDeclarator();} (d = declarator {$directDec.setDeclarator($d.dec); $directDec.setLine($d.dec.getLine());}) RightParen
+    | d_ = directDeclarator {$directDec = new DirectDeclarator();} {$directDec.setDirectDeclarator($d_.directDec); $directDec.setLine($d_.directDec.getLine());} LeftBracket (e = expression {$directDec.setExpression($e.expressionRet);})? RightBracket
+    | d__ = directDeclarator {$directDec = new DirectDeclarator();} {$directDec.setDirectDeclarator($d__.directDec); $directDec.setLine($d__.directDec.getLine());} LeftParen  (p = parameterList {$directDec.setParameterList($p.paramList);}| (i1 = identifierList {$directDec.setIdentifierList($i1.idList);})?) RightParen ;
 
 pointer
     : ((Star) (Const+)?)+ ;

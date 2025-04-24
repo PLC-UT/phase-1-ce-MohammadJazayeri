@@ -21,6 +21,15 @@ public class TestVisitor extends Visitor<Void>{
             functionDefinition.getDeclarationSpecifiers().accept(this);
 
         functionDefinition.getDeclarator().accept(this);
+        int line = 0;
+        String name = "";
+        if (functionDefinition.getDeclarator().getDirectDeclarator() != null) {
+            line = functionDefinition.getDeclarator().getDirectDeclarator().getLine();
+            if(functionDefinition.getDeclarator().getDirectDeclarator().getDirectDeclarator() != null)
+                name = functionDefinition.getDeclarator().getDirectDeclarator().getDirectDeclarator().getName();
+            System.out.print("Line "+line +": Stmt function " + name + " = ");
+        }
+
 
         if(functionDefinition.getDeclarationList() != null)
             functionDefinition.getDeclarationList().accept(this);
@@ -28,6 +37,11 @@ public class TestVisitor extends Visitor<Void>{
         if(functionDefinition.getBody() != null)
             functionDefinition.getBody().accept(this);
 
+        return null;
+    }
+
+    public Void visit(Declarator declarator) {
+        declarator.getDirectDeclarator().accept(this);
         return null;
     }
 
@@ -43,7 +57,7 @@ public class TestVisitor extends Visitor<Void>{
                 size += blockItem.getDec().getInitDeclaratorList().getInitDeclaratorsSize() - 1;
             }
         }
-        System.out.println("Function size is: " + (compoundStmt.getItems().size() + size));
+        System.out.println((compoundStmt.getItems().size() + size));
         return null;
     }
 
