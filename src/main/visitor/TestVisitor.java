@@ -178,7 +178,7 @@ public class TestVisitor extends Visitor<Void>{
             if(iterationStmt.getStmt() instanceof CompoundStmt) {
                 CompoundStmt compoundStmt = (CompoundStmt) iterationStmt.getStmt();
                 for (BlockItem blockItem : compoundStmt.getItems()) {
-                    blockItem.accept(this);
+//                    blockItem.accept(this);
                     if(blockItem.getStatement() instanceof  SelectionStmt) {
                         size += ((SelectionStmt) blockItem.getStatement()).getElseIfSize();
                         size += ((SelectionStmt) blockItem.getStatement()).getElse();
