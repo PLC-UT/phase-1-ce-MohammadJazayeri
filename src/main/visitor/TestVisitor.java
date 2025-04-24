@@ -36,9 +36,9 @@ public class TestVisitor extends Visitor<Void>{
         if(functionDefinition.getBody() != null) {
             for (BlockItem blockItem : functionDefinition.getBody().getItems()) {
                 if(blockItem.getStatement() instanceof  SelectionStmt) {
-//                    size += ((SelectionStmt) blockItem.getStatement()).getElseIfSize();
-//                    size += ((SelectionStmt) blockItem.getStatement()).getElse();
-                    size += 0;
+                    size += ((SelectionStmt) blockItem.getStatement()).getElseIfSize();
+                    size += ((SelectionStmt) blockItem.getStatement()).getElse();
+//                    size += 0;
                 }
                 if(blockItem.getDec() != null && blockItem.getDec().getInitDeclaratorList() != null) {
                     size += blockItem.getDec().getInitDeclaratorList().getInitDeclaratorsSize() - 1;
@@ -86,12 +86,14 @@ public class TestVisitor extends Visitor<Void>{
         if(selectionStmt.getIfExpression() instanceof Constant) {
             ifExpr = ((Constant)selectionStmt.getIfExpression()).getVal();
         }
+        else if(selectionStmt.getIfExpression() instanceof BinaryExpression) {
+            ifExpr = ((BinaryExpression) selectionStmt.getIfExpression()).getOperator();
+        }
         int ifSize = 0;
         for(BlockItem blockItem : ((CompoundStmt)selectionStmt.getIfStmt()).getItems()) {
             if(blockItem.getDec() != null) {
                 ifSize += blockItem.getDec().getDecSpecs().getDeclarationSpecifierSize();
             }
-                blockItem.accept(this);
                 if(blockItem.getStatement() instanceof  SelectionStmt) {
                     ifSize += ((SelectionStmt) blockItem.getStatement()).getElseIfSize();
                     ifSize += ((SelectionStmt) blockItem.getStatement()).getElse();
@@ -105,8 +107,12 @@ public class TestVisitor extends Visitor<Void>{
         System.out.println("Line " + ifLine + ": Expr " + ifExpr);
         System.out.println("Line " + ifLine + ": Stmt selection = " + ifSize);
 
+        for(BlockItem blockItem : ((CompoundStmt)selectionStmt.getIfStmt()).getItems())
+            blockItem.accept(this);
+
         int elseIfLine = selectionStmt.getElseIfLine();
         String elseIfExpr = "";
+
         if(selectionStmt.getElseIfExpression() instanceof Constant) {
             elseIfExpr = ((Constant)selectionStmt.getElseIfExpression()).getVal();
         }
@@ -114,6 +120,7 @@ public class TestVisitor extends Visitor<Void>{
         for (Stmt stmt : selectionStmt.getElseIfStmt()) {
             if (stmt instanceof CompoundStmt) {
                 CompoundStmt c = (CompoundStmt) stmt;
+
                 for (BlockItem blockItem : c.getItems()) {
                     if(blockItem.getDec() != null) {
                         elseIfSize += blockItem.getDec().getDecSpecs().getDeclarationSpecifierSize();
@@ -142,7 +149,6 @@ public class TestVisitor extends Visitor<Void>{
                 if(blockItem.getDec() != null) {
                     elseSize += blockItem.getDec().getDecSpecs().getDeclarationSpecifierSize();
                 }
-                    blockItem.accept(this);
                     if(blockItem.getStatement() instanceof  SelectionStmt) {
                         elseSize += ((SelectionStmt) blockItem.getStatement()).getElseIfSize();
                         elseSize += ((SelectionStmt) blockItem.getStatement()).getElse();
@@ -154,8 +160,11 @@ public class TestVisitor extends Visitor<Void>{
 //                }
 
             }
+            System.out.println("Line " + elseLine + ": Stmt selection = " + elseSize);
+            for(BlockItem blockItem : ((CompoundStmt)selectionStmt.getElseStmt()).getItems())
+                blockItem.accept(this);
         }
-        System.out.println("Line " + elseLine + ": Stmt selection = " + elseSize);
+
         return null;
     }
 
@@ -165,6 +174,11 @@ public class TestVisitor extends Visitor<Void>{
         if(expressionStmt.getExpression() instanceof BinaryExpression) {
             val = ((BinaryExpression) expressionStmt.getExpression()).getOperator();
             line = ((Identifier) ((BinaryExpression) expressionStmt.getExpression()).getFirstExpression()).getLine();
+            System.out.println("Line " + line + ": Expr " + val);
+        }
+        else if(expressionStmt.getExpression() instanceof FunctionCall) {
+            line = ((FunctionCall) expressionStmt.getExpression()).getExpression().getLine();
+            val = ((Identifier)((FunctionCall) expressionStmt.getExpression()).getExpression()).getName();
             System.out.println("Line " + line + ": Expr " + val);
         }
         expressionStmt.getExpression().accept(this);
@@ -178,6 +192,8 @@ public class TestVisitor extends Visitor<Void>{
             loop = "while";
             if(iterationStmt.getExpression() instanceof Constant)
                 expr = ((Constant) iterationStmt.getExpression()).getVal();
+            else if(iterationStmt.getExpression() instanceof BinaryExpression)
+                expr = ((BinaryExpression) iterationStmt.getExpression()).getOperator();
         }
         if(iterationStmt.getStmt() != null) {
             int line = 0;
@@ -343,6 +359,10 @@ public class TestVisitor extends Visitor<Void>{
                     val = ",";
                 }
             }
+            else if(initializer.getExpression() instanceof FunctionCall) {
+                line = ((FunctionCall) initializer.getExpression()).getExpression().getLine();
+                val = ((Identifier)((FunctionCall) initializer.getExpression()).getExpression()).getName();
+            }
             System.out.println("Line " + line +": Expr " + val);
             initializer.getExpression().accept(this);
         }
@@ -363,6 +383,8 @@ public class TestVisitor extends Visitor<Void>{
         String expr = "";
         if(jumpStmt.getExpression() instanceof Constant)
             expr = ((Constant) jumpStmt.getExpression()).getVal();
+        else if(jumpStmt.getExpression() instanceof Identifier)
+            expr = ((Identifier) jumpStmt.getExpression()).getName();
         System.out.println("Line " + line + ": Expr " + expr);
         return null;
     }

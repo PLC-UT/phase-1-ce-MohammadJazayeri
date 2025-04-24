@@ -1,5 +1,7 @@
-void main():
-    int a = 5, b = 6
-    a *= b++ + --a * 7 - a
-    b += sizeof(a)
+int main():
+    while (1):
+        int a,b
+        int c
+
+    return 0
 end

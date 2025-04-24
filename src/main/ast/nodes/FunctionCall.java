@@ -14,6 +14,10 @@ public class FunctionCall extends Expression {
         this.argumentExpressionList = argumentExpressionList;
     }
 
+    public Expression getExpression() {
+        return expression;
+    }
+
     @Override
     public <T> T accept(IVisitor<T> visitor) {
         return visitor.visit(this);

@@ -82,7 +82,10 @@ public class SelectionStmt extends Stmt {
     }
 
     public Expression getElseIfExpression() {
-        return this.elseIfExpr.get(0);
+        if(this.elseIfExpr.size() != 0)
+            return this.elseIfExpr.get(0);
+        else
+            return null;
     }
 
     @Override
