@@ -9,6 +9,9 @@ public class SelectionStmt extends Stmt {
     private ArrayList<Expression> elseIfExpr = new ArrayList<>();
     private Stmt ifStmt;
     private Stmt elseStmt;
+    private int ifLine;
+    private int elseIfLine;
+    private int elseLine;
 
     public SelectionStmt(Expression expression, Stmt ifStmt) {
         this.ifExpression = expression;
@@ -48,6 +51,38 @@ public class SelectionStmt extends Stmt {
             return 1;
         else
             return 0;
+    }
+
+    public int getIfLine() {
+        return ifLine;
+    }
+
+    public void setIfLine(int line) {
+        this.ifLine = line;
+    }
+
+    public int getElseIfLine() {
+        return elseIfLine;
+    }
+
+    public void setElseIfLine(int elseIfLine) {
+        this.elseIfLine = elseIfLine;
+    }
+
+    public int getElseLine() {
+        return elseLine;
+    }
+
+    public void setElseLine(int elseLine) {
+        this.elseLine = elseLine;
+    }
+
+    public Expression getIfExpression() {
+        return this.ifExpression;
+    }
+
+    public Expression getElseIfExpression() {
+        return this.elseIfExpr.get(0);
     }
 
     @Override

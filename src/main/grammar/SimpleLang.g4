@@ -279,9 +279,9 @@ expressionStatement returns [ExpressionStmt exprStmtRet]
      (e = expression {$exprStmtRet.setExpression($e.expressionRet);})? Semi ;
 
 selectionStatement returns [SelectionStmt selectionStmtRet]
-    : If LeftParen e = expression RightParen s = statement {$selectionStmtRet = new SelectionStmt($e.expressionRet, $s.stmtRet);}
-     (Else If LeftParen e = expression RightParen s = statement {$selectionStmtRet.addElseIf($s.stmtRet, $e.expressionRet);})*
-     (Else s1 = statement {$selectionStmtRet.setElseStmt($s1.stmtRet);})? ;
+    : i = If LeftParen e = expression RightParen s = statement {$selectionStmtRet = new SelectionStmt($e.expressionRet, $s.stmtRet); $selectionStmtRet.setIfLine($i.line);}
+     (el = Else If LeftParen e = expression RightParen s = statement {$selectionStmtRet.addElseIf($s.stmtRet, $e.expressionRet); $selectionStmtRet.setElseIfLine($el.line);})*
+     (els = Else s1 = statement {$selectionStmtRet.setElseStmt($s1.stmtRet); $selectionStmtRet.setElseLine($els.line);})? ;
 
 iterationStatement returns [IterationStmt iterStmtRet]
     : {$iterStmtRet = new IterationStmt();}

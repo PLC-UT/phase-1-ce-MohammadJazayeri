@@ -36,8 +36,9 @@ public class TestVisitor extends Visitor<Void>{
         if(functionDefinition.getBody() != null) {
             for (BlockItem blockItem : functionDefinition.getBody().getItems()) {
                 if(blockItem.getStatement() instanceof  SelectionStmt) {
-                    size += ((SelectionStmt) blockItem.getStatement()).getElseIfSize();
-                    size += ((SelectionStmt) blockItem.getStatement()).getElse();
+//                    size += ((SelectionStmt) blockItem.getStatement()).getElseIfSize();
+//                    size += ((SelectionStmt) blockItem.getStatement()).getElse();
+                    size += 0;
                 }
                 if(blockItem.getDec() != null && blockItem.getDec().getInitDeclaratorList() != null) {
                     size += blockItem.getDec().getInitDeclaratorList().getInitDeclaratorsSize() - 1;
@@ -79,11 +80,17 @@ public class TestVisitor extends Visitor<Void>{
         return null;
     }
 
-    public Void visit(SelectionStmt selectionStmt) { // take care of expressions later
+    public Void visit(SelectionStmt selectionStmt) {
+        int ifLine = selectionStmt.getIfLine();
+        String ifExpr = "";
+        if(selectionStmt.getIfExpression() instanceof Constant) {
+            ifExpr = ((Constant)selectionStmt.getIfExpression()).getVal();
+        }
         int ifSize = 0;
         for(BlockItem blockItem : ((CompoundStmt)selectionStmt.getIfStmt()).getItems()) {
             if(blockItem.getDec() != null) {
                 ifSize += blockItem.getDec().getDecSpecs().getDeclarationSpecifierSize();
+            }
                 blockItem.accept(this);
                 if(blockItem.getStatement() instanceof  SelectionStmt) {
                     ifSize += ((SelectionStmt) blockItem.getStatement()).getElseIfSize();
@@ -93,20 +100,48 @@ public class TestVisitor extends Visitor<Void>{
                 else if(blockItem.getStatement() instanceof JumpStmt ||blockItem.getStatement() instanceof IterationStmt
                         || blockItem.getStatement() instanceof ExpressionStmt)
                     ifSize += 1;
-            }
+//            }
         }
-        System.out.println("If size is: " + ifSize);
+        System.out.println("Line " + ifLine + ": Expr " + ifExpr);
+        System.out.println("Line " + ifLine + ": Stmt selection = " + ifSize);
+
+        int elseIfLine = selectionStmt.getElseIfLine();
+        String elseIfExpr = "";
+        if(selectionStmt.getElseIfExpression() instanceof Constant) {
+            elseIfExpr = ((Constant)selectionStmt.getElseIfExpression()).getVal();
+        }
         int elseIfSize = 0;
         for (Stmt stmt : selectionStmt.getElseIfStmt()) {
             if (stmt instanceof CompoundStmt) {
+                CompoundStmt c = (CompoundStmt) stmt;
+                for (BlockItem blockItem : c.getItems()) {
+                    if(blockItem.getDec() != null) {
+                        elseIfSize += blockItem.getDec().getDecSpecs().getDeclarationSpecifierSize();
+                    }
+                    if(blockItem.getStatement() instanceof  SelectionStmt) {
+                        elseIfSize += ((SelectionStmt) blockItem.getStatement()).getElseIfSize();
+                        elseIfSize += ((SelectionStmt) blockItem.getStatement()).getElse();
+                        elseIfSize += 1;
+                    }
+                    else if(blockItem.getStatement() instanceof JumpStmt ||blockItem.getStatement() instanceof IterationStmt
+                            || blockItem.getStatement() instanceof ExpressionStmt)
+                        elseIfSize += 1;
+                    if(blockItem.getDec() != null && blockItem.getDec().getInitDeclaratorList() != null) {
+                        elseIfSize += blockItem.getDec().getInitDeclaratorList().getInitDeclaratorsSize() - 1;
+                    }
+                }
+                System.out.println("Line " + elseIfLine + ": Expr " + elseIfExpr);
+                System.out.println("Line " + elseIfLine + ": Stmt selection = " + elseIfSize);
                 stmt.accept(this);
             }
         }
+        int elseLine = selectionStmt.getElseLine();
         int elseSize = 0;
         if(((CompoundStmt)selectionStmt.getElseStmt()) != null) {
             for(BlockItem blockItem : ((CompoundStmt)selectionStmt.getElseStmt()).getItems()) {
                 if(blockItem.getDec() != null) {
                     elseSize += blockItem.getDec().getDecSpecs().getDeclarationSpecifierSize();
+                }
                     blockItem.accept(this);
                     if(blockItem.getStatement() instanceof  SelectionStmt) {
                         elseSize += ((SelectionStmt) blockItem.getStatement()).getElseIfSize();
@@ -116,11 +151,11 @@ public class TestVisitor extends Visitor<Void>{
                     else if(blockItem.getStatement() instanceof JumpStmt ||blockItem.getStatement() instanceof IterationStmt
                             || blockItem.getStatement() instanceof ExpressionStmt)
                         elseSize += 1;
-                }
+//                }
 
             }
         }
-        System.out.println("Else size is: " + elseSize);
+        System.out.println("Line " + elseLine + ": Stmt selection = " + elseSize);
         return null;
     }
 

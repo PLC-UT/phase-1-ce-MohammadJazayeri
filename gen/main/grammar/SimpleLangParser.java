@@ -3972,13 +3972,12 @@ public class SimpleLangParser extends Parser {
 	@SuppressWarnings("CheckReturnValue")
 	public static class SelectionStatementContext extends ParserRuleContext {
 		public SelectionStmt selectionStmtRet;
+		public Token i;
 		public ExpressionContext e;
 		public StatementContext s;
+		public Token el;
+		public Token els;
 		public StatementContext s1;
-		public List<TerminalNode> If() { return getTokens(SimpleLangParser.If); }
-		public TerminalNode If(int i) {
-			return getToken(SimpleLangParser.If, i);
-		}
 		public List<TerminalNode> LeftParen() { return getTokens(SimpleLangParser.LeftParen); }
 		public TerminalNode LeftParen(int i) {
 			return getToken(SimpleLangParser.LeftParen, i);
@@ -3986,6 +3985,10 @@ public class SimpleLangParser extends Parser {
 		public List<TerminalNode> RightParen() { return getTokens(SimpleLangParser.RightParen); }
 		public TerminalNode RightParen(int i) {
 			return getToken(SimpleLangParser.RightParen, i);
+		}
+		public List<TerminalNode> If() { return getTokens(SimpleLangParser.If); }
+		public TerminalNode If(int i) {
+			return getToken(SimpleLangParser.If, i);
 		}
 		public List<ExpressionContext> expression() {
 			return getRuleContexts(ExpressionContext.class);
@@ -4030,7 +4033,7 @@ public class SimpleLangParser extends Parser {
 			enterOuterAlt(_localctx, 1);
 			{
 			setState(741);
-			match(If);
+			((SelectionStatementContext)_localctx).i = match(If);
 			setState(742);
 			match(LeftParen);
 			setState(743);
@@ -4039,7 +4042,7 @@ public class SimpleLangParser extends Parser {
 			match(RightParen);
 			setState(745);
 			((SelectionStatementContext)_localctx).s = statement();
-			((SelectionStatementContext)_localctx).selectionStmtRet =  new SelectionStmt(((SelectionStatementContext)_localctx).e.expressionRet, ((SelectionStatementContext)_localctx).s.stmtRet);
+			((SelectionStatementContext)_localctx).selectionStmtRet =  new SelectionStmt(((SelectionStatementContext)_localctx).e.expressionRet, ((SelectionStatementContext)_localctx).s.stmtRet); _localctx.selectionStmtRet.setIfLine((((SelectionStatementContext)_localctx).i!=null?((SelectionStatementContext)_localctx).i.getLine():0));
 			setState(757);
 			_errHandler.sync(this);
 			_alt = getInterpreter().adaptivePredict(_input,69,_ctx);
@@ -4048,7 +4051,7 @@ public class SimpleLangParser extends Parser {
 					{
 					{
 					setState(747);
-					match(Else);
+					((SelectionStatementContext)_localctx).el = match(Else);
 					setState(748);
 					match(If);
 					setState(749);
@@ -4059,7 +4062,7 @@ public class SimpleLangParser extends Parser {
 					match(RightParen);
 					setState(752);
 					((SelectionStatementContext)_localctx).s = statement();
-					_localctx.selectionStmtRet.addElseIf(((SelectionStatementContext)_localctx).s.stmtRet, ((SelectionStatementContext)_localctx).e.expressionRet);
+					_localctx.selectionStmtRet.addElseIf(((SelectionStatementContext)_localctx).s.stmtRet, ((SelectionStatementContext)_localctx).e.expressionRet); _localctx.selectionStmtRet.setElseIfLine((((SelectionStatementContext)_localctx).el!=null?((SelectionStatementContext)_localctx).el.getLine():0));
 					}
 					} 
 				}
@@ -4073,10 +4076,10 @@ public class SimpleLangParser extends Parser {
 			case 1:
 				{
 				setState(760);
-				match(Else);
+				((SelectionStatementContext)_localctx).els = match(Else);
 				setState(761);
 				((SelectionStatementContext)_localctx).s1 = statement();
-				_localctx.selectionStmtRet.setElseStmt(((SelectionStatementContext)_localctx).s1.stmtRet);
+				_localctx.selectionStmtRet.setElseStmt(((SelectionStatementContext)_localctx).s1.stmtRet); _localctx.selectionStmtRet.setElseLine((((SelectionStatementContext)_localctx).els!=null?((SelectionStatementContext)_localctx).els.getLine():0));
 				}
 				break;
 			}

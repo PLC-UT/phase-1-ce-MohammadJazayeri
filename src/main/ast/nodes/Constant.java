@@ -9,6 +9,10 @@ public class Constant extends Expression {
         this.val = val;
     }
 
+    public String getVal() {
+        return val;
+    }
+
     @Override
     public <T> T accept(IVisitor<T> visitor) {
         return visitor.visit(this);
