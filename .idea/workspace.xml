@@ -5,7 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="68365f85-a90e-432b-85fe-c0d47523b9ca" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleLang/main/visitor/TestVisitor.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SimpleLang/main/visitor/TestVisitor.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/samples/sample4.sl" beforeDir="false" afterPath="$PROJECT_DIR$/samples/sample4.sl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/ast/nodes/ArgumentExpressionList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/ast/nodes/ArgumentExpressionList.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/grammar/SimpleLang.g4" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/grammar/SimpleLang.g4" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/visitor/TestVisitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/visitor/TestVisitor.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -222,7 +226,8 @@
       <workItem from="1745489423111" duration="634000" />
       <workItem from="1745490278346" duration="9000" />
       <workItem from="1745490723619" duration="295000" />
-      <workItem from="1745491070291" duration="17678000" />
+      <workItem from="1745491070291" duration="17851000" />
+      <workItem from="1745519231896" duration="1111000" />
     </task>
     <servers />
   </component>

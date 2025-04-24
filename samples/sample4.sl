@@ -1,5 +1,5 @@
-int main():
-    int a = 5
-    a += 5
-    return 0
+void main():
+    int a = 5, b = 6
+    a *= b++ + --a * 7 - a
+    b += sizeof(a)
 end

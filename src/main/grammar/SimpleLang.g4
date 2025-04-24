@@ -140,7 +140,7 @@ expression returns [Expression expressionRet]
 
 argumentExpressionList returns [ArgumentExpressionList argExprList]
   : {$argExprList = new ArgumentExpressionList();}
-   e1 = expression {$argExprList.addExpression($e1.expressionRet);} (Comma e2 = expression {$argExprList.addExpression($e2.expressionRet);})* ;
+   e1 = expression {$argExprList.addExpression($e1.expressionRet);} (c = Comma e2 = expression {$argExprList.addExpression($e2.expressionRet); $argExprList.setLine($c.line);})* ;
 
 unaryOperator returns [UnaryOperator unaryOp]
   : And {$unaryOp = UnaryOperator.AND;}

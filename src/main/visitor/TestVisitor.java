@@ -337,6 +337,12 @@ public class TestVisitor extends Visitor<Void>{
                 line = ((UnaryExpression) initializer.getExpression()).getLine();
                 val = ((UnaryExpression) initializer.getExpression()).getOperator();
             }
+            else if(initializer.getExpression() instanceof ArgumentExpressionList) {
+                if(((ArgumentExpressionList)initializer.getExpression()).getExpressions().size() > 1) {
+                    line = ((ArgumentExpressionList)initializer.getExpression()).getExpressions().get(0).getLine();
+                    val = ",";
+                }
+            }
             System.out.println("Line " + line +": Expr " + val);
             initializer.getExpression().accept(this);
         }
@@ -358,6 +364,13 @@ public class TestVisitor extends Visitor<Void>{
         if(jumpStmt.getExpression() instanceof Constant)
             expr = ((Constant) jumpStmt.getExpression()).getVal();
         System.out.println("Line " + line + ": Expr " + expr);
+        return null;
+    }
+
+    public Void visit(ArgumentExpressionList argumentExpressionList) {
+        for(Expression expr : argumentExpressionList.getExpressions()) {
+            expr.accept(this);
+        }
         return null;
     }
 }
