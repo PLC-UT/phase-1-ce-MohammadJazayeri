@@ -160,6 +160,13 @@ public class TestVisitor extends Visitor<Void>{
     }
 
     public Void visit(ExpressionStmt expressionStmt) {
+        String val = "";
+        int line = 0;
+        if(expressionStmt.getExpression() instanceof BinaryExpression) {
+            val = ((BinaryExpression) expressionStmt.getExpression()).getOperator();
+            line = ((Identifier) ((BinaryExpression) expressionStmt.getExpression()).getFirstExpression()).getLine();
+            System.out.println("Line " + line + ": Expr " + val);
+        }
         expressionStmt.getExpression().accept(this);
         return null;
     }
@@ -248,15 +255,8 @@ public class TestVisitor extends Visitor<Void>{
     }
 
     public Void visit(BinaryExpression binaryExpression) {
-//        int max = calcDepth(binaryExpression);
-////        System.out.println("maximum depth is: "+ max);
-        String val = "";
-        int line = 0;
-        val = binaryExpression.getOperator();
-        if(binaryExpression.getFirstExpression() != null) {
-            line = ((Identifier) binaryExpression.getFirstExpression()).getLine();
-            System.out.println("Line " + line + ": Expr " + val);
-        }
+        int max = calcDepth(binaryExpression);
+//        System.out.println("maximum depth is: "+ max);
         binaryExpression.getFirstExpression().accept(this);
         binaryExpression.getSecondExpression().accept(this);
         return null;
