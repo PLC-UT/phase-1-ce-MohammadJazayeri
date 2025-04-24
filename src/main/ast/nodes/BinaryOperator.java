@@ -19,7 +19,18 @@ public enum BinaryOperator {
     OR("|"),
     OROR("||"),
     ANDAND("&&"),
-    ASSIGN("=");
+    ASSIGN("="),
+    MULTASSIGN("*="),
+    DIVASSIGN("/="),
+    MODASSIGN("%="),
+    PLUSASSIGN("+="),
+    MINUSASSIGN("-="),
+    LSHIFTASSIGN("<<="),
+    RSHIFTASSIGN(">>="),
+    ANDASSIGN("&="),
+    XORASSIGN("^="),
+    ORASSIGN("|=");
+
 
     private final String symbol;
 

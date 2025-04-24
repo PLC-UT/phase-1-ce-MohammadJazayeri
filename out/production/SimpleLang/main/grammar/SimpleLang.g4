@@ -121,17 +121,19 @@ expression returns [Expression expressionRet]
         $expressionRet = new TernaryExpression($e1.expressionRet, $e2.expressionRet, $e3.expressionRet);
   }                               // Conditional operator
   | e1 = expression a = assignmentOperator e2 = expression {
-        if($a.assignOperator == Assignment.PLUS){$expressionRet = new BinaryExpression($e1.expressionRet, $e2.expressionRet, BinaryOperator.PLUS, $e1.text);}
-        else if($a.assignOperator == Assignment.MINUS){$expressionRet = new BinaryExpression($e1.expressionRet, $e2.expressionRet, BinaryOperator.MINUS, $e1.text);}
-        else if($a.assignOperator == Assignment.MULT){$expressionRet = new BinaryExpression($e1.expressionRet, $e2.expressionRet, BinaryOperator.MULT, $e1.text);}
-        else if($a.assignOperator == Assignment.DIVIDE){$expressionRet = new BinaryExpression($e1.expressionRet, $e2.expressionRet, BinaryOperator.DIVIDE, $e1.text);}
-        else if($a.assignOperator == Assignment.MOD){$expressionRet = new BinaryExpression($e1.expressionRet, $e2.expressionRet, BinaryOperator.MOD, $e1.text);}
-        else if($a.assignOperator == Assignment.LSHIFT){$expressionRet = new BinaryExpression($e1.expressionRet, $e2.expressionRet, BinaryOperator.LSHIFT, $e1.text);}
-        else if($a.assignOperator == Assignment.RSHIFT){$expressionRet = new BinaryExpression($e1.expressionRet, $e2.expressionRet, BinaryOperator.RSHIFT, $e1.text);}
-        else if($a.assignOperator == Assignment.XOR){$expressionRet = new BinaryExpression($e1.expressionRet, $e2.expressionRet, BinaryOperator.XOR, $e1.text);}
-        else if($a.assignOperator == Assignment.AND){$expressionRet = new BinaryExpression($e1.expressionRet, $e2.expressionRet, BinaryOperator.AND, $e1.text);}
+        if($a.assignOperator == Assignment.PLUS){BinaryExpression expr = new BinaryExpression($e1.expressionRet, $e2.expressionRet, BinaryOperator.PLUSASSIGN, $e1.text);
+                                                 expr.setLine($e1.expressionRet.getLine());
+                                                 $expressionRet = expr;}
+        else if($a.assignOperator == Assignment.MINUS){$expressionRet = new BinaryExpression($e1.expressionRet, $e2.expressionRet, BinaryOperator.MINUSASSIGN, $e1.text);}
+        else if($a.assignOperator == Assignment.MULT){$expressionRet = new BinaryExpression($e1.expressionRet, $e2.expressionRet, BinaryOperator.MULTASSIGN, $e1.text);}
+        else if($a.assignOperator == Assignment.DIVIDE){$expressionRet = new BinaryExpression($e1.expressionRet, $e2.expressionRet, BinaryOperator.DIVASSIGN, $e1.text);}
+        else if($a.assignOperator == Assignment.MOD){$expressionRet = new BinaryExpression($e1.expressionRet, $e2.expressionRet, BinaryOperator.MODASSIGN, $e1.text);}
+        else if($a.assignOperator == Assignment.LSHIFT){$expressionRet = new BinaryExpression($e1.expressionRet, $e2.expressionRet, BinaryOperator.LSHIFTASSIGN, $e1.text);}
+        else if($a.assignOperator == Assignment.RSHIFT){$expressionRet = new BinaryExpression($e1.expressionRet, $e2.expressionRet, BinaryOperator.RSHIFTASSIGN, $e1.text);}
+        else if($a.assignOperator == Assignment.XOR){$expressionRet = new BinaryExpression($e1.expressionRet, $e2.expressionRet, BinaryOperator.XORASSIGN, $e1.text);}
+        else if($a.assignOperator == Assignment.AND){$expressionRet = new BinaryExpression($e1.expressionRet, $e2.expressionRet, BinaryOperator.ANDASSIGN, $e1.text);}
         else if($a.assignOperator == Assignment.ASSIGN){$expressionRet = new BinaryExpression($e1.expressionRet, $e2.expressionRet, BinaryOperator.ASSIGN);}
-        else{$expressionRet = new BinaryExpression($e1.expressionRet, $e2.expressionRet, BinaryOperator.OR, $e1.text);}
+        else{$expressionRet = new BinaryExpression($e1.expressionRet, $e2.expressionRet, BinaryOperator.ORASSIGN, $e1.text);}
   }                                     // Assignment
   | e1 = expression {ArgumentExpressionList e = new ArgumentExpressionList(); e.addExpression($e1.expressionRet);}
   (Comma e2 = expression {e.addExpression($e2.expressionRet); $expressionRet = e;})+ ;                                              // Comma operator

@@ -248,8 +248,15 @@ public class TestVisitor extends Visitor<Void>{
     }
 
     public Void visit(BinaryExpression binaryExpression) {
-        int max = calcDepth(binaryExpression);
-//        System.out.println("maximum depth is: "+ max);
+//        int max = calcDepth(binaryExpression);
+////        System.out.println("maximum depth is: "+ max);
+        String val = "";
+        int line = 0;
+        val = binaryExpression.getOperator();
+        if(binaryExpression.getFirstExpression() != null) {
+            line = ((Identifier) binaryExpression.getFirstExpression()).getLine();
+            System.out.println("Line " + line + ": Expr " + val);
+        }
         binaryExpression.getFirstExpression().accept(this);
         binaryExpression.getSecondExpression().accept(this);
         return null;

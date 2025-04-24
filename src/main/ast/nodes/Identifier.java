@@ -16,6 +16,11 @@ public class Identifier extends Expression{
     }
 
     @Override
+    public int getLine() {
+        return line;
+    }
+
+    @Override
     public <T> T accept(IVisitor<T> visitor) {
         return visitor.visit(this);
     }
