@@ -6,7 +6,7 @@ import org.antlr.v4.runtime.CharStream;
 import org.antlr.v4.runtime.CharStreams;
 import org.antlr.v4.runtime.CommonTokenStream;
 import java.io.IOException;
-import main.visitor.Converter;
+import main.visitor.CtoCPYConvertor;
 
 public class SimpleLang {
     public static void main(String[] args) throws IOException {
@@ -14,7 +14,7 @@ public class SimpleLang {
         String sourceCode = java.nio.file.Files.readString(java.nio.file.Paths.get(args[0]));
 
         // Convert it
-        String convertedCode = Converter.convert(sourceCode);
+        String convertedCode = CtoCPYConvertor.transform(sourceCode);
 
         // Feed converted code to lexer
         CharStream reader = CharStreams.fromString(convertedCode);

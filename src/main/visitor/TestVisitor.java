@@ -36,9 +36,9 @@ public class TestVisitor extends Visitor<Void>{
         if(functionDefinition.getBody() != null) {
             for (BlockItem blockItem : functionDefinition.getBody().getItems()) {
                 if(blockItem.getStatement() instanceof  SelectionStmt) {
-                    size += ((SelectionStmt) blockItem.getStatement()).getElseIfSize();
-                    size += ((SelectionStmt) blockItem.getStatement()).getElse();
-//                    size += 0;
+//                    size += ((SelectionStmt) blockItem.getStatement()).getElseIfSize();
+//                    size += ((SelectionStmt) blockItem.getStatement()).getElse();
+                    size += 0;
                 }
                 if(blockItem.getDec() != null && blockItem.getDec().getInitDeclaratorList() != null) {
                     size += blockItem.getDec().getInitDeclaratorList().getInitDeclaratorsSize() - 1;
