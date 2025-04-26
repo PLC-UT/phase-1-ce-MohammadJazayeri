@@ -6,12 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="68365f85-a90e-432b-85fe-c0d47523b9ca" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SimpleLang/SimpleLang.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SimpleLang/SimpleLang.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SimpleLang/main/visitor/Converter.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/samples/sample4.sl" beforeDir="false" afterPath="$PROJECT_DIR$/samples/sample4.sl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SimpleLang.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SimpleLang.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/visitor/Converter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/visitor/CtoCPYConvertor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/visitor/TestVisitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/visitor/TestVisitor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gen/main/grammar/SimpleLangParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/gen/main/grammar/SimpleLangParser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/grammar/SimpleLang.g4" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/grammar/SimpleLang.g4" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -231,6 +227,7 @@
       <workItem from="1745519231896" duration="1282000" />
       <workItem from="1745524635711" duration="4761000" />
       <workItem from="1745562815967" duration="942000" />
+      <workItem from="1745661306215" duration="343000" />
     </task>
     <servers />
   </component>
