@@ -124,16 +124,36 @@ expression returns [Expression expressionRet]
         if($a.assignOperator == Assignment.PLUS){BinaryExpression expr = new BinaryExpression($e1.expressionRet, $e2.expressionRet, BinaryOperator.PLUSASSIGN, $e1.text);
                                                  expr.setLine($e1.expressionRet.getLine());
                                                  $expressionRet = expr;}
-        else if($a.assignOperator == Assignment.MINUS){$expressionRet = new BinaryExpression($e1.expressionRet, $e2.expressionRet, BinaryOperator.MINUSASSIGN, $e1.text);}
-        else if($a.assignOperator == Assignment.MULT){$expressionRet = new BinaryExpression($e1.expressionRet, $e2.expressionRet, BinaryOperator.MULTASSIGN, $e1.text);}
-        else if($a.assignOperator == Assignment.DIVIDE){$expressionRet = new BinaryExpression($e1.expressionRet, $e2.expressionRet, BinaryOperator.DIVASSIGN, $e1.text);}
-        else if($a.assignOperator == Assignment.MOD){$expressionRet = new BinaryExpression($e1.expressionRet, $e2.expressionRet, BinaryOperator.MODASSIGN, $e1.text);}
-        else if($a.assignOperator == Assignment.LSHIFT){$expressionRet = new BinaryExpression($e1.expressionRet, $e2.expressionRet, BinaryOperator.LSHIFTASSIGN, $e1.text);}
-        else if($a.assignOperator == Assignment.RSHIFT){$expressionRet = new BinaryExpression($e1.expressionRet, $e2.expressionRet, BinaryOperator.RSHIFTASSIGN, $e1.text);}
-        else if($a.assignOperator == Assignment.XOR){$expressionRet = new BinaryExpression($e1.expressionRet, $e2.expressionRet, BinaryOperator.XORASSIGN, $e1.text);}
-        else if($a.assignOperator == Assignment.AND){$expressionRet = new BinaryExpression($e1.expressionRet, $e2.expressionRet, BinaryOperator.ANDASSIGN, $e1.text);}
-        else if($a.assignOperator == Assignment.ASSIGN){$expressionRet = new BinaryExpression($e1.expressionRet, $e2.expressionRet, BinaryOperator.ASSIGN);}
-        else{$expressionRet = new BinaryExpression($e1.expressionRet, $e2.expressionRet, BinaryOperator.ORASSIGN, $e1.text);}
+        else if($a.assignOperator == Assignment.MINUS){BinaryExpression expr = new BinaryExpression($e1.expressionRet, $e2.expressionRet, BinaryOperator.MINUSASSIGN, $e1.text);
+                                                                                                       expr.setLine($e1.expressionRet.getLine());
+                                                                                                       $expressionRet = expr;}
+        else if($a.assignOperator == Assignment.MULT){BinaryExpression expr = new BinaryExpression($e1.expressionRet, $e2.expressionRet, BinaryOperator.MULTASSIGN, $e1.text);
+                                                                                                      expr.setLine($e1.expressionRet.getLine());
+                                                                                                      $expressionRet = expr;}
+        else if($a.assignOperator == Assignment.DIVIDE){BinaryExpression expr = new BinaryExpression($e1.expressionRet, $e2.expressionRet, BinaryOperator.DIVASSIGN, $e1.text);
+                                                                                                        expr.setLine($e1.expressionRet.getLine());
+                                                                                                        $expressionRet = expr;}
+        else if($a.assignOperator == Assignment.MOD){BinaryExpression expr = new BinaryExpression($e1.expressionRet, $e2.expressionRet, BinaryOperator.MODASSIGN, $e1.text);
+                                                                                                     expr.setLine($e1.expressionRet.getLine());
+                                                                                                     $expressionRet = expr;}
+        else if($a.assignOperator == Assignment.LSHIFT){BinaryExpression expr = new BinaryExpression($e1.expressionRet, $e2.expressionRet, BinaryOperator.LSHIFTASSIGN, $e1.text);
+                                                                                                        expr.setLine($e1.expressionRet.getLine());
+                                                                                                        $expressionRet = expr;}
+        else if($a.assignOperator == Assignment.RSHIFT){BinaryExpression expr = new BinaryExpression($e1.expressionRet, $e2.expressionRet, BinaryOperator.RSHIFTASSIGN, $e1.text);
+                                                                                                        expr.setLine($e1.expressionRet.getLine());
+                                                                                                        $expressionRet = expr;}
+        else if($a.assignOperator == Assignment.XOR){BinaryExpression expr = new BinaryExpression($e1.expressionRet, $e2.expressionRet, BinaryOperator.XORASSIGN, $e1.text);
+                                                                                                     expr.setLine($e1.expressionRet.getLine());
+                                                                                                     $expressionRet = expr;}
+        else if($a.assignOperator == Assignment.AND){BinaryExpression expr = new BinaryExpression($e1.expressionRet, $e2.expressionRet, BinaryOperator.ANDASSIGN, $e1.text);
+                                                                                                     expr.setLine($e1.expressionRet.getLine());
+                                                                                                     $expressionRet = expr;}
+        else if($a.assignOperator == Assignment.ASSIGN){BinaryExpression expr = new BinaryExpression($e1.expressionRet, $e2.expressionRet, BinaryOperator.ASSIGN, $e1.text);
+                                                                                                        expr.setLine($e1.expressionRet.getLine());
+                                                                                                        $expressionRet = expr;}
+        else{BinaryExpression expr = new BinaryExpression($e1.expressionRet, $e2.expressionRet, BinaryOperator.ORASSIGN, $e1.text);
+                                                             expr.setLine($e1.expressionRet.getLine());
+                                                             $expressionRet = expr;}
   }                                     // Assignment
   | e1 = expression {ArgumentExpressionList e = new ArgumentExpressionList(); e.addExpression($e1.expressionRet);}
   (Comma e2 = expression {e.addExpression($e2.expressionRet); $expressionRet = e;})+ ;                                              // Comma operator
