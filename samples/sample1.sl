@@ -1,8 +1,14 @@
-void foo():
+void process():
     int a
+    if(1):
+        if(1):
+            printf(a)
+            printf(b)
+            int b
+
+        printf(b)
 end
 
 int main():
-    int a
-    return 0
-end
+    int b
+    printf(b + c)

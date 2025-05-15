@@ -20,7 +20,20 @@ public class DirectDeclarator extends Declarator {
     }
 
     public String getName() {
-        return this.identifier.getName();
+        if(this.directDeclarator != null)
+            if(this.directDeclarator.identifier != null)
+                return this.directDeclarator.identifier.getName();
+            else
+                return this.directDeclarator.getDirectDeclarator().identifier.getName();
+        else
+            return this.identifier.getName();
+    }
+
+    public int getNumOfArgs() {
+        if(this.parameterList != null)
+            return this.parameterList.getNumOfArgs();
+        else
+            return 0;
     }
 
     @Override
@@ -55,6 +68,10 @@ public class DirectDeclarator extends Declarator {
 
     public Identifier getIdentifier() {
         return identifier;
+    }
+
+    public ParameterList getParameterList() {
+        return parameterList;
     }
 
     @Override

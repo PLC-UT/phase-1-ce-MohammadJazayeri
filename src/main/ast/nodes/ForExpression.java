@@ -15,6 +15,10 @@ public class ForExpression extends Expression{
         this.expressions.add(expression);
     }
 
+    public ArrayList<Expression> getExpressions() {
+        return expressions;
+    }
+
     @Override
     public <T> T accept(IVisitor<T> visitor) {
         return visitor.visit(this);

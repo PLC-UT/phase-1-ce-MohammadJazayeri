@@ -2,7 +2,7 @@ package main.ast.nodes;
 
 import main.visitor.IVisitor;
 
-public class ParameterDeclaration extends Node {
+public class ParameterDeclaration extends Declaration {
     private DeclarationSpecifiers declarationSpecifiers;
     private Declarator declarator;
     private AbstractDeclarator abstractDeclarator;
@@ -17,6 +17,10 @@ public class ParameterDeclaration extends Node {
 
     public void setAbstractDeclarator(AbstractDeclarator abstractDeclarator) {
         this.abstractDeclarator = abstractDeclarator;
+    }
+
+    public DeclarationSpecifiers getDeclarationSpecifiers() {
+        return declarationSpecifiers;
     }
 
     @Override

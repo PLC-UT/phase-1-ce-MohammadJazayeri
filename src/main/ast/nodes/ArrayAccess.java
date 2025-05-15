@@ -11,6 +11,14 @@ public class ArrayAccess extends Expression{
         this.index = index;
     }
 
+    public Expression getArray() {
+        return array;
+    }
+
+    public Expression getIndex() {
+        return index;
+    }
+
     @Override
     public <T> T accept(IVisitor<T> visitor) {
         return visitor.visit(this);

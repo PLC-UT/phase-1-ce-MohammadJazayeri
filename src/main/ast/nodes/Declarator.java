@@ -16,6 +16,12 @@ public class Declarator extends Node{
         return directDeclarator;
     }
 
+    public String getName() {return this.directDeclarator.getName();}
+
+    public int getNumOfArgs() {
+        return this.directDeclarator.getNumOfArgs();
+    }
+
     @Override
     public void setLine(int line) {
         this.line = line;

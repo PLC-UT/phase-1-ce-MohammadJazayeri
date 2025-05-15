@@ -1,5 +1,6 @@
 package main.ast.nodes;
 
+import main.symbolTable.SymbolTable;
 import main.visitor.IVisitor;
 import java.util.ArrayList;
 
@@ -12,6 +13,7 @@ public class SelectionStmt extends Stmt {
     private int ifLine;
     private int elseIfLine;
     private int elseLine;
+    private SymbolTable symbolTable;
 
     public SelectionStmt(Expression expression, Stmt ifStmt) {
         this.ifExpression = expression;
@@ -86,6 +88,14 @@ public class SelectionStmt extends Stmt {
             return this.elseIfExpr.get(0);
         else
             return null;
+    }
+
+    public SymbolTable getSymbolTable() {
+        return symbolTable;
+    }
+
+    public void setSymbolTable(SymbolTable symbolTable) {
+        this.symbolTable = symbolTable;
     }
 
     @Override

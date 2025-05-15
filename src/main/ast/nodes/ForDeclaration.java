@@ -2,7 +2,7 @@ package main.ast.nodes;
 
 import main.visitor.IVisitor;
 
-public class ForDeclaration extends Node {
+public class ForDeclaration extends Declaration {
     private DeclarationSpecifiers declarationSpecifiers;
     private InitDeclaratorList initDeclaratorList;
 
@@ -12,6 +12,14 @@ public class ForDeclaration extends Node {
 
     public void setInitDeclaratorList(InitDeclaratorList initDeclaratorList) {
         this.initDeclaratorList = initDeclaratorList;
+    }
+
+    public DeclarationSpecifiers getDeclarationSpecifiers() {
+        return declarationSpecifiers;
+    }
+
+    public InitDeclaratorList getInitDeclaratorList() {
+        return initDeclaratorList;
     }
 
     @Override

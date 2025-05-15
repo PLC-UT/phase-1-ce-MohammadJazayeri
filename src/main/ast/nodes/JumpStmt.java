@@ -29,6 +29,10 @@ public class JumpStmt extends Stmt {
         return expression;
     }
 
+    public String getType() {
+        return type;
+    }
+
     @Override
     public <T> T accept(IVisitor<T> visitor) {
         return visitor.visit(this);

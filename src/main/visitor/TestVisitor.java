@@ -44,7 +44,7 @@ public class TestVisitor extends Visitor<Void>{
                     size += blockItem.getDec().getInitDeclaratorList().getInitDeclaratorsSize() - 1;
                 }
             }
-            System.out.println((functionDefinition.getBody().getItems().size() +size));
+            System.out.println((functionDefinition.getBody().getItems().size() +size) + " " + functionDefinition.numberOfArguments());
             functionDefinition.getBody().accept(this);
 
         }
@@ -68,7 +68,6 @@ public class TestVisitor extends Visitor<Void>{
                 size += blockItem.getDec().getInitDeclaratorList().getInitDeclaratorsSize() - 1;
             }
         }
-//        System.out.println((compoundStmt.getItems().size() + size));
         return null;
     }
 
@@ -171,17 +170,22 @@ public class TestVisitor extends Visitor<Void>{
     public Void visit(ExpressionStmt expressionStmt) {
         String val = "";
         int line = 0;
-        if(expressionStmt.getExpression() instanceof BinaryExpression) {
-            val = ((BinaryExpression) expressionStmt.getExpression()).getOperator();
-            line = ((Identifier) ((BinaryExpression) expressionStmt.getExpression()).getFirstExpression()).getLine();
-            System.out.println("Line " + line + ": Expr " + val);
+        if(expressionStmt.getExpression() != null) {
+            if(expressionStmt.getExpression() instanceof BinaryExpression) {
+                val = ((BinaryExpression) expressionStmt.getExpression()).getOperator();
+                if(((BinaryExpression) expressionStmt.getExpression()).getFirstExpression() instanceof Identifier)
+                    line = ((Identifier) ((BinaryExpression) expressionStmt.getExpression()).getFirstExpression()).getLine();
+                else if(((BinaryExpression) expressionStmt.getExpression()).getFirstExpression() instanceof Constant)
+                    line = ((Constant) ((BinaryExpression) expressionStmt.getExpression()).getFirstExpression()).getLine();
+//                System.out.println("Line " + line + ": Expr " + val);
+            }
+            else if(expressionStmt.getExpression() instanceof FunctionCall) {
+                line = ((FunctionCall) expressionStmt.getExpression()).getExpression().getLine();
+                val = ((Identifier)((FunctionCall) expressionStmt.getExpression()).getExpression()).getName();
+//                System.out.println("Line " + line + ": Expr " + val);
+            }
+            expressionStmt.getExpression().accept(this);
         }
-        else if(expressionStmt.getExpression() instanceof FunctionCall) {
-            line = ((FunctionCall) expressionStmt.getExpression()).getExpression().getLine();
-            val = ((Identifier)((FunctionCall) expressionStmt.getExpression()).getExpression()).getName();
-            System.out.println("Line " + line + ": Expr " + val);
-        }
-        expressionStmt.getExpression().accept(this);
         return null;
     }
 
@@ -271,7 +275,7 @@ public class TestVisitor extends Visitor<Void>{
     }
 
     public Void visit(BinaryExpression binaryExpression) {
-        int max = calcDepth(binaryExpression);
+//        int max = calcDepth(binaryExpression);
 //        System.out.println("maximum depth is: "+ max);
         binaryExpression.getFirstExpression().accept(this);
         binaryExpression.getSecondExpression().accept(this);
@@ -295,7 +299,7 @@ public class TestVisitor extends Visitor<Void>{
 
     @Override
     public Void visit(UnaryExpression unaryExpression) {
-        int max = calcDepth1(unaryExpression);
+//        int max = calcDepth1(unaryExpression);
 //        System.out.println("U maximum depth is: "+ max);
         unaryExpression.getExpression().accept(this);
         return null;
@@ -385,7 +389,7 @@ public class TestVisitor extends Visitor<Void>{
             expr = ((Constant) jumpStmt.getExpression()).getVal();
         else if(jumpStmt.getExpression() instanceof Identifier)
             expr = ((Identifier) jumpStmt.getExpression()).getName();
-        System.out.println("Line " + line + ": Expr " + expr);
+//        System.out.println("Line " + line + ": Expr " + expr);
         return null;
     }
 

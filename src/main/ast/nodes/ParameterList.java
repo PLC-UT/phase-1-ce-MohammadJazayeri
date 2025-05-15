@@ -13,6 +13,17 @@ public class ParameterList extends Node {
         this.parameterDeclarations.add(parameterDeclaration);
     }
 
+    public int getNumOfArgs() {
+        if (this.parameterDeclarations != null)
+            return this.parameterDeclarations.size();
+        else
+            return 0;
+    }
+
+    public ArrayList<ParameterDeclaration> getParameterDeclarations() {
+        return parameterDeclarations;
+    }
+
     @Override
     public <T> T accept(IVisitor<T> visitor) {
         return visitor.visit(this);

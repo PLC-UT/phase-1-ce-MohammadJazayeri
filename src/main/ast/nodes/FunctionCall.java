@@ -18,6 +18,17 @@ public class FunctionCall extends Expression {
         return expression;
     }
 
+    public Expression getArgsExpr() {
+        if(this.argumentExpressionList != null)
+            if(this.argumentExpressionList.getExpressions() != null)
+                return this.argumentExpressionList.getExpressions().get(0);
+        return null;
+    }
+
+    public void clearExpressions() {
+        this.argumentExpressionList.getExpressions().clear();
+    }
+
     @Override
     public <T> T accept(IVisitor<T> visitor) {
         return visitor.visit(this);

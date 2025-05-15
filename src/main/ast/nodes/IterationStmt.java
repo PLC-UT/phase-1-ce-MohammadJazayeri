@@ -1,5 +1,6 @@
 package main.ast.nodes;
 
+import main.symbolTable.SymbolTable;
 import main.visitor.IVisitor;
 
 public class IterationStmt extends Stmt {
@@ -7,6 +8,7 @@ public class IterationStmt extends Stmt {
     private Stmt stmt;
     private ForCondition forCondition;
     private int line;
+    private SymbolTable symbolTable;
 
     public IterationStmt() {}
 
@@ -42,6 +44,10 @@ public class IterationStmt extends Stmt {
 
     public Expression getExpression() {
         return expression;
+    }
+
+    public void setSymbolTable(SymbolTable symbolTable) {
+        this.symbolTable = symbolTable;
     }
 
     @Override

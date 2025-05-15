@@ -6,6 +6,8 @@ public class Declaration extends ExternalDeclaration {
     private DeclarationSpecifiers DecSpecs;
     private InitDeclaratorList initDeclaratorList;
 
+    private String type;
+
     public Declaration() {}
 
     public void setDecSpecs(DeclarationSpecifiers decSpecs) {
@@ -22,6 +24,14 @@ public class Declaration extends ExternalDeclaration {
 
     public InitDeclaratorList getInitDeclaratorList() {
         return initDeclaratorList;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public String getType() {
+        return type;
     }
 
     @Override

@@ -10,12 +10,23 @@ public final class CtoCPYConvertor {
 
     public static String transform(String input) {
         String[] rawLines = input.split("\n", -1);
-        List<String> resultLines = new ArrayList<>(rawLines.length);
+        List<String> filteredLines = new ArrayList<>();
+
+        // First pass: remove lines that are exactly "end" (ignoring leading/trailing spaces)
+        for (String line : rawLines) {
+            if (line.trim().equals("end")) {
+                filteredLines.add(""); // Preserve newline position
+            } else {
+                filteredLines.add(line);
+            }
+        }
+
+        List<String> resultLines = new ArrayList<>(filteredLines.size());
         Deque<Integer> indentStack = new ArrayDeque<>();
         boolean insideBlockComment = false;
         int lastCodeLine = -1;
 
-        for (String currentLine : rawLines) {
+        for (String currentLine : filteredLines) {
             String cleanLine = currentLine.trim();
 
             if (insideBlockComment) {
@@ -50,17 +61,14 @@ public final class CtoCPYConvertor {
 
             String trimmedCode = codeSegment.trim();
             int currentIndent = countLeadingSpaces(currentLine) / SPACE_UNIT;
-            boolean endsWithEnd = trimmedCode.equals("end");
             boolean hasBlockStart = trimmedCode.endsWith(":");
 
-            if (!endsWithEnd) {
-                while (!indentStack.isEmpty() && currentIndent < indentStack.peek()) {
-                    if (lastCodeLine >= 0) {
-                        String updated = resultLines.get(lastCodeLine) + "}";
-                        resultLines.set(lastCodeLine, updated);
-                    }
-                    indentStack.pop();
+            while (!indentStack.isEmpty() && currentIndent < indentStack.peek()) {
+                if (lastCodeLine >= 0) {
+                    String updated = resultLines.get(lastCodeLine) + "}";
+                    resultLines.set(lastCodeLine, updated);
                 }
+                indentStack.pop();
             }
 
             StringBuilder lineBuilder = new StringBuilder(" ".repeat(currentIndent * SPACE_UNIT));
@@ -69,12 +77,6 @@ public final class CtoCPYConvertor {
                 String blockStart = removeTrailingSpaces(trimmedCode.substring(0, trimmedCode.length() - 1));
                 lineBuilder.append(blockStart).append(" {");
                 indentStack.push(currentIndent + 1);
-            } else if (endsWithEnd) {
-                if (!indentStack.isEmpty()) {
-                    lineBuilder.append("}");
-                    indentStack.pop();
-                }
-                lineBuilder.append("end;");
             } else {
                 lineBuilder.append(trimmedCode);
                 if (!trimmedCode.endsWith(";") && !trimmedCode.endsWith("{") && !trimmedCode.endsWith("}")) {
@@ -101,6 +103,7 @@ public final class CtoCPYConvertor {
 
         return String.join("\n", resultLines);
     }
+
 
     private static int countLeadingSpaces(String line) {
         int index = 0;

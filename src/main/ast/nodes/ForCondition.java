@@ -26,6 +26,22 @@ public class ForCondition extends Node {
         this.forExpression2 = forExpression2;
     }
 
+    public Expression getExpression() {
+        return expression;
+    }
+
+    public ForDeclaration getForDeclaration() {
+        return forDeclaration;
+    }
+
+    public ForExpression getForExpression1() {
+        return forExpression1;
+    }
+
+    public ForExpression getForExpression2() {
+        return forExpression2;
+    }
+
     @Override
     public <T> T accept(IVisitor<T> visitor) {
         return visitor.visit(this);

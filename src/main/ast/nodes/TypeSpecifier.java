@@ -14,6 +14,14 @@ public class TypeSpecifier extends DeclarationSpecifier {
         this.identifier = ID;
     }
 
+    public String getVal() {
+        return this.val;
+    }
+
+    public Identifier getIdentifier() {
+        return identifier;
+    }
+
     @Override
     public <T> T accept(IVisitor<T> visitor) {
         return visitor.visit(this);

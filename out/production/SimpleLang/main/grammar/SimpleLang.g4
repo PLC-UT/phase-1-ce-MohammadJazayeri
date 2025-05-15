@@ -23,6 +23,7 @@ functionDefinition returns [FunctionDefinition funcDefRet]
      (d1 = declarationSpecifiers {$funcDefRet.setDeclarationSpecifiers($d1.decSpecsRet);})?
      (d = declarator {$funcDefRet.setDeclarator($d.dec); $funcDefRet.setLine($d.dec.getLine());})
      (d2 = declarationList {$funcDefRet.setDeclarationList($d2.decList);})?
+     {$funcDefRet.setName($d.dec.getName()); $funcDefRet.setNumOfArgs();}
      (c = compoundStatement {$funcDefRet.setBody($c.CStmt);})
      (s = Semi | 'end')*;
 
@@ -47,7 +48,7 @@ expression returns [Expression expressionRet]
   | {ListOfExpressions l = new ListOfExpressions();} (p = PlusPlus {l.addPrefixOperators($p.text);}
   | m = MinusMinus {l.addPrefixOperators($m.text);}
   | s = Sizeof {l.addPrefixOperators($s.text);})* (                                          // Prefix operators (zero or more)
-         i = Identifier {l.setIdentifier($i.text); $expressionRet = l;}
+         i = Identifier {l.setIdentifier($i.text); $expressionRet = l; $expressionRet.setLine($i.line);}
        | c = Constant {l.setConstant($i.text); $expressionRet = l;}
        | StringLiteral+
        | LeftParen e = expression {l.setExpression($e.expressionRet); $expressionRet = l;} RightParen
@@ -224,7 +225,7 @@ typeSpecifier returns [TypeSpecifier typeSpecRet]
     | s = Signed {$typeSpecRet = new TypeSpecifier($s.text);}
     | u = Unsigned {$typeSpecRet = new TypeSpecifier($u.text);}
     | b = Bool {$typeSpecRet = new TypeSpecifier($b.text);}
-    | id = Identifier {Identifier identifier = new Identifier($id.text); $typeSpecRet = new TypeSpecifier(identifier);}  ;
+    | id = Identifier {Identifier identifier = new Identifier($id.text); identifier.setLine($id.line); $typeSpecRet = new TypeSpecifier(identifier);}  ;
 
 specifierQualifierList returns [SpecifierQualifierList specQualList]
     : {$specQualList = new SpecifierQualifierList();}
@@ -249,7 +250,8 @@ parameterList returns [ParameterList paramList]
 
 parameterDeclaration returns [ParameterDeclaration paramDec]
     :d1 = declarationSpecifiers {$paramDec = new ParameterDeclaration($d1.decSpecsRet);}
-     (d2 = declarator {$paramDec.setDeclarator($d2.dec);} | (a = abstractDeclarator {$paramDec.setAbstractDeclarator($a.abstDec);})?) ;
+     (d2 = declarator {$paramDec.setDeclarator($d2.dec);}
+     | (a = abstractDeclarator {$paramDec.setAbstractDeclarator($a.abstDec);})?) ;
 
 identifierList returns [IdentifierList idList]
     : {$idList = new IdentifierList();}
@@ -323,7 +325,8 @@ iterationStatement returns [IterationStmt iterStmtRet]
 
 forCondition returns [ForCondition forConditionRet]
     : {$forConditionRet = new ForCondition();}
-     (f = forDeclaration {$forConditionRet.setForDeclaration($f.forDecRet);} | (e = expression {$forConditionRet.setExpression($e.expressionRet);})?) Semi
+     (f = forDeclaration {$forConditionRet.setForDeclaration($f.forDecRet);}
+     | (e = expression {$forConditionRet.setExpression($e.expressionRet);})?) Semi
      (f1 = forExpression {$forConditionRet.setForExpression1($f1.forExprRet);})? Semi (f2 = forExpression {$forConditionRet.setForExpression2($f2.forExprRet);})? ;
 
 forDeclaration returns [ForDeclaration forDecRet]
